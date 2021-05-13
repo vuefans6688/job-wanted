@@ -1,11 +1,16 @@
 <template>
   <div id="app" :class="{ 'active-tabbar': $route.meta.showTabbar }">
-    <!-- 使用keep-alive包裹router-view -->
+    <!-- 将缓存name为company, question, find, my的组件 -->
     <keep-alive include="company, question, find, my">
       <router-view></router-view>
     </keep-alive>
-    <van-tabbar v-model="active" v-show="$route.meta.showTabbar" active-color="#07c160" 
-      inactive-color="#b4b4bd" route>
+    <van-tabbar
+      v-model="active"
+      v-show="$route.meta.showTabbar"
+      active-color="#07c160"
+      inactive-color="#b4b4bd"
+      route
+    >
       <van-tabbar-item name="company" to="/company">
         <span>公司</span>
         <template #icon>
@@ -74,7 +79,7 @@ export default {
   }
   // .fade-leave-active below version 2.1.8
   .fade-enter,
-  .fade-leave-to {   
+  .fade-leave-to {
     opacity: 0;
   }
 }
