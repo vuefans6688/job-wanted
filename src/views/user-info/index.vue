@@ -9,38 +9,62 @@
     <!-- 主体区域 -->
     <div class="main-box">
       <!-- 头像 -->
-      <van-cell @click="toEdit('avatar')" title="头像" class="icon-cell my-cell">
+      <van-cell
+        @click="toEdit('avatar')"
+        title="头像"
+        class="icon-cell my-cell"
+      >
         <!-- 使用 right-icon 插槽来自定义右侧图标 -->
         <template #right-icon>
           <i class="iconfont iconicon-more"></i>
         </template>
         <template>
-          <img :src="userInfo && userInfo.avatar" alt="" class="avatar">
+          <img :src="userInfo && userInfo.avatar" alt="" class="avatar" />
         </template>
       </van-cell>
       <!-- 昵称 -->
       <van-cell-group>
-        <van-cell @click="toEdit('nickname')" title="昵称" :border="false" class="my-cell"
-          :value="userInfo && userInfo.nickname">
+        <van-cell
+          @click="toEdit('nickname')"
+          title="昵称"
+          :border="false"
+          class="my-cell"
+          :value="userInfo && userInfo.nickname"
+        >
           <template #right-icon>
             <i class="iconfont iconicon-more"></i>
           </template>
         </van-cell>
-        <van-cell @click="showGenderPicker = true" title="性别" :border="false" class="my-cell"
-          :value="userInfo && userInfo.gender | formatGender">
+        <van-cell
+          @click="showGenderPicker = true"
+          title="性别"
+          :border="false"
+          class="my-cell"
+          :value="userInfo && userInfo.gender | formatGender"
+        >
           <template #right-icon>
             <i class="iconfont iconicon-more"></i>
           </template>
         </van-cell>
-        <van-cell @click="showAreaPicker = true" title="地区" :border="false" class="my-cell"
-          :value="(userInfo && userInfo.area) || '未知'">
+        <van-cell
+          @click="showAreaPicker = true"
+          title="地区"
+          :border="false"
+          class="my-cell"
+          :value="(userInfo && userInfo.area) || '未知'"
+        >
           <template #right-icon>
             <i class="iconfont iconicon-more"></i>
           </template>
         </van-cell>
         <!-- 简介 -->
-        <van-cell @click="toEdit('intro')" title="个人简介" :border="false" class="my-cell"
-          :value="userInfo && userInfo.intro">
+        <van-cell
+          @click="toEdit('intro')"
+          title="个人简介"
+          :border="false"
+          class="my-cell"
+          :value="userInfo && userInfo.intro"
+        >
           <template #right-icon>
             <i class="iconfont iconicon-more"></i>
           </template>
@@ -50,14 +74,23 @@
       <van-button @click="logout" class="logout-button">退出登录</van-button>
       <!-- 性别选择弹出层 -->
       <van-popup v-model="showGenderPicker" position="bottom">
-        <van-picker @confirm="onGenderConfirm" :columns="genderColumns" show-toolbar
-          @cancel="showGenderPicker = false" :default-index="userInfo && userInfo.gender">
+        <van-picker
+          @confirm="onGenderConfirm"
+          :columns="genderColumns"
+          show-toolbar
+          @cancel="showGenderPicker = false"
+          :default-index="userInfo && userInfo.gender"
+        >
         </van-picker>
       </van-popup>
       <!-- 城市选择弹出层 -->
       <van-popup v-model="showAreaPicker" position="bottom">
-        <van-area @confirm="onAreaConfirm" @cancel="showAreaPicker = false"
-          :area-list="areaList" :columns-num="2">
+        <van-area
+          @confirm="onAreaConfirm"
+          @cancel="showAreaPicker = false"
+          :area-list="areaList"
+          :columns-num="2"
+        >
         </van-area>
       </van-popup>
     </div>
@@ -72,7 +105,7 @@ import areaList from '@/utils/cityData'
 // 导入token工具函数  
 import { removeLocal } from '@/utils/local'
 // 导入接口  
-import { edit } from '@/api'  
+import { edit } from '@/api'
 export default {
   data () {
     return {

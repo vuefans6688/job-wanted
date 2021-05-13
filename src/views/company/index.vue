@@ -5,47 +5,100 @@
         <span class="title">公司</span>
         <!-- 搜索 -->
         <div class="search-box">
-          <van-search @search="onSearch" v-model="keyword" shape="round" placeholder="请输入搜索关键词"></van-search>
+          <van-search
+            @search="onSearch"
+            v-model="keyword"
+            shape="round"
+            placeholder="请输入搜索关键词"
+          ></van-search>
         </div>
       </div>
       <!-- 图片 -->
       <div v-if="!showPop" class="banner-box">
-        <img src="@/assets/ios3x_img_banner@3x.png">
+        <img src="@/assets/ios3x_img_banner@3x.png" />
       </div>
       <!-- 筛选区域 -->
       <div class="filter-box">
-        <span @click="suggestFilter" :class="{ actived: !distance && !score }" class="recommend">推荐</span>
-        <span @click="distanceFilter" class="distance">距离
+        <span
+          @click="suggestFilter"
+          :class="{ actived: !distance && !score }"
+          class="recommend"
+          >推荐</span
+        >
+        <span @click="distanceFilter" class="distance"
+          >距离
           <span class="arrow-box">
-            <i :class="{ actived: distance === 'asc' }" class="iconfont rotate iconicon-xuanze-sel"></i>
-            <i :class="{ actived: distance === 'desc' }" class="iconfont iconicon-xuanze-sel"></i>
+            <i
+              :class="{ actived: distance === 'asc' }"
+              class="iconfont rotate iconicon-xuanze-sel"
+            ></i>
+            <i
+              :class="{ actived: distance === 'desc' }"
+              class="iconfont iconicon-xuanze-sel"
+            ></i>
           </span>
         </span>
-        <span @click="scoreFilter" class="grade">评分
+        <span @click="scoreFilter" class="grade"
+          >评分
           <span class="arrow-box">
-            <i :class="{ actived: score === 'asc' }" class="iconfont rotate iconicon-xuanze-sel"></i>
-            <i :class="{ actived: score === 'desc' }" class="iconfont iconicon-xuanze-sel"></i>
+            <i
+              :class="{ actived: score === 'asc' }"
+              class="iconfont rotate iconicon-xuanze-sel"
+            ></i>
+            <i
+              :class="{ actived: score === 'desc' }"
+              class="iconfont iconicon-xuanze-sel"
+            ></i>
           </span>
         </span>
-        <span @click="showPop = true" :class="{ actived: showPop }" class="filter">筛选</span>
+        <span
+          @click="showPop = true"
+          :class="{ actived: showPop }"
+          class="filter"
+          >筛选</span
+        >
       </div>
     </van-sticky>
     <!-- 主体区域 -->
     <div class="main-box">
-      <van-list @load="onLoad" v-model="loading" :finished="finished" finished-text="没有更多了">
+      <van-list
+        @load="onLoad"
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+      >
         <!-- 列表项 -->
-        <item-list v-for="item in list" :key="item.id" :item="item" @click-item="clickItem"></item-list>
+        <item-list
+          v-for="item in list"
+          :key="item.id"
+          :item="item"
+          @click-item="clickItem"
+        ></item-list>
       </van-list>
     </div>
     <!-- 弹出层 -->
-    <van-popup transition="fade" v-model="showPop" position="top" :style="{ height: '70%' }" class="company-pop">
+    <van-popup
+      transition="fade"
+      v-model="showPop"
+      position="top"
+      :style="{ height: '70%' }"
+      class="company-pop"
+    >
       <div class="section">
         <h2>距离</h2>
         <div class="items">
-          <div @click="distanceFilter('desc')" :class="{ actived: distance === 'desc' }" class="item">
+          <div
+            @click="distanceFilter('desc')"
+            :class="{ actived: distance === 'desc' }"
+            class="item"
+          >
             由远及近
           </div>
-          <div @click="distanceFilter('asc')" :class="{ actived: distance === 'asc' }" class="item">
+          <div
+            @click="distanceFilter('asc')"
+            :class="{ actived: distance === 'asc' }"
+            class="item"
+          >
             由近及远
           </div>
         </div>
@@ -53,15 +106,27 @@
       <div class="section">
         <h2>评分</h2>
         <div class="items">
-          <div class="item" v-for="(item, index) in scoreList" :key="index" 
-            @click="setScoreRange(index)" :class="{ actived: scoreIndex === index }">
+          <div
+            class="item"
+            v-for="(item, index) in scoreList"
+            :key="index"
+            @click="setScoreRange(index)"
+            :class="{ actived: scoreIndex === index }"
+          >
             {{ item }}
           </div>
         </div>
       </div>
       <div class="control-box van-hairline--top">
-        <van-button @click="clearFilter" class="clear-button" type="default">清除</van-button>
-        <van-button @click="showPop = false" class="confirm-button" type="primary">确认</van-button>
+        <van-button @click="clearFilter" class="clear-button" type="default"
+          >清除</van-button
+        >
+        <van-button
+          @click="showPop = false"
+          class="confirm-button"
+          type="primary"
+          >确认</van-button
+        >
       </div>
     </van-popup>
   </div>
@@ -71,10 +136,10 @@
 // 导入接口
 import { companyList } from '@/api'
 // 导入组件  
-import ItemList from './item-list'  
+import ItemList from './item-list'
 export default {
   // 注册组件
-  components: { ItemList },  
+  components: { ItemList },
   data () {
     return {
       // 弹出层的状态

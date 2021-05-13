@@ -7,7 +7,13 @@
           <i class="iconfont iconbtn-nav-back"></i>
         </template>
       </van-nav-bar>
-      <van-search shape="round" v-model="value" placeholder="请输入搜索关键词" @cancel="cancel" show-action>
+      <van-search
+        shape="round"
+        v-model="value"
+        placeholder="请输入搜索关键词"
+        @cancel="cancel"
+        show-action
+      >
         <template #left-icon>
           <i class="iconfont iconicon-search"></i>
         </template>
@@ -19,7 +25,12 @@
       <div class="section">
         <div class="title">大家都在搜索</div>
         <ul class="tags">
-          <li class="tag" v-for="(item, index) in topSearch" :key="index" @click="clickTopSeach(item)">
+          <li
+            class="tag"
+            v-for="(item, index) in topSearch"
+            :key="index"
+            @click="clickTopSeach(item)"
+          >
             {{ item }}
           </li>
         </ul>
@@ -28,14 +39,25 @@
       <div class="section">
         <div class="title">历史记录 <span @click="clear">清空</span></div>
         <div class="tags">
-          <span class="tag" v-for="item in history" :key="item" @click="clickTopSeach(item)">{{ item }}</span>
+          <span
+            class="tag"
+            v-for="item in history"
+            :key="item"
+            @click="clickTopSeach(item)"
+            >{{ item }}</span
+          >
         </div>
       </div>
     </div>
     <!-- 搜索结果 -->
     <div v-else class="result-box">
       <div class="interview-list" v-if="tag === 'technic'">
-        <div class="item" v-for="item in list" :key="item.id" @click="$router.push(`/technic-detail/${item.id}`)">
+        <div
+          class="item"
+          v-for="item in list"
+          :key="item.id"
+          @click="$router.push(`/technic-detail/${item.id}`)"
+        >
           <div class="content">
             <div class="title van-multi-ellipsis--l2" v-html="item.title"></div>
             <div class="info">
@@ -51,12 +73,17 @@
             </div>
           </div>
           <div class="cover" v-if="item.cover">
-            <img :src="item.cover" alt="">
+            <img :src="item.cover" alt="" />
           </div>
         </div>
       </div>
       <template v-else>
-        <share-item v-for="item in list" :key="item.id" :item="item" @share-item-click="shareItemClick"></share-item>
+        <share-item
+          v-for="item in list"
+          :key="item.id"
+          :item="item"
+          @share-item-click="shareItemClick"
+        ></share-item>
       </template>
     </div>
   </div>

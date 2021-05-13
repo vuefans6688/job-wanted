@@ -1,13 +1,15 @@
 <template>
   <div class="item">
-    <img :src="item.user.avatar" alt="">
+    <img :src="item.user.avatar" alt="" />
     <div class="content-box">
       <div class="top">
         <div class="left">
           <span class="name">{{ item.user.nickname }}</span>
           <span class="job">面试岗位: {{ item.position }}</span>
           <ul class="tags">
-            <li class="tag" v-for="(tag, index) in item.tags" :key="index">{{ tag }}</li>
+            <li class="tag" v-for="(tag, index) in item.tags" :key="index">
+              {{ tag }}
+            </li>
           </ul>
         </div>
         <!-- 打分 -->

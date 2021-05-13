@@ -13,10 +13,20 @@
     </div>
     <!-- 面试技巧区域 -->
     <div class="interview-box">
-      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+      <van-list
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
         <!-- 列表区域 -->
         <div class="interview-list">
-          <technic-item v-for="item in list" :key="item.id" :item="item" @item-click="itemClick">
+          <technic-item
+            v-for="item in list"
+            :key="item.id"
+            :item="item"
+            @item-click="itemClick"
+          >
           </technic-item>
         </div>
       </van-list>

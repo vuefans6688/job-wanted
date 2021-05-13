@@ -8,9 +8,11 @@
     </van-nav-bar>
     <!-- 顶部 -->
     <div class="top-box">
-      <div class="title">拿到百度音乐的offer后，我总结了面试产品实习的几点经验</div>
+      <div class="title">
+        拿到百度音乐的offer后，我总结了面试产品实习的几点经验
+      </div>
       <div class="info-box">
-        <img src="@/assets/avatar2.jpg" alt="">
+        <img src="@/assets/avatar2.jpg" alt="" />
         <div class="name-box">
           <span class="name">浩子</span>
           <span class="time">3小时前</span>
@@ -19,7 +21,7 @@
     </div>
     <!-- 内容 -->
     <div class="experience-content">
-      <img src="@/assets/detailCover.jpg" alt="">
+      <img src="@/assets/detailCover.jpg" alt="" />
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto enim id
       deleniti, sint, repudiandae obcaecati voluptatibus pariatur exercitationem
       odit est a illum et aperiam voluptas quo? Debitis quis ratione magni
@@ -69,7 +71,7 @@
       <div class="comment">
         <!-- 姓名 点赞区域 -->
         <div class="info-box">
-          <img src="@/assets/avatar2.jpg" alt="">
+          <img src="@/assets/avatar2.jpg" alt="" />
           <div class="name-box">
             <span class="name">浩子</span>
             <span class="time">3小时前</span>
@@ -101,7 +103,7 @@
       <div class="comment">
         <!-- 姓名 点赞区域 -->
         <div class="info-box">
-          <img src="@/assets/avatar2.jpg" alt="">
+          <img src="@/assets/avatar2.jpg" alt="" />
           <div class="name-box">
             <span class="name">浩子</span>
             <span class="time">3小时前</span>
@@ -316,7 +318,7 @@ export default {
     background-position-x: 0;
     background-position-y: 0;
     padding: 0 15px 15px;
-    background-image: url('@/assets/ios3x_img_share_bj@3x.png');
+    background-image: url("@/assets/ios3x_img_share_bj@3x.png");
     display: flex;
     flex-direction: column;
     .text {
@@ -355,7 +357,7 @@ export default {
         overflow: hidden;
         position: relative;
         &::after {
-          content: '';
+          content: "";
           width: 100%;
           bottom: 0;
           left: 0;

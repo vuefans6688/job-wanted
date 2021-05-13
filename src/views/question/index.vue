@@ -5,7 +5,7 @@
       <!-- 下拉菜单 -->
       <van-dropdown-menu class="question-dropdown-menu">
         <van-dropdown-item class="city-drop" ref="cityDrop">
-          <template #title> 
+          <template #title>
             <span>面试宝典 {{ selectedCity }}</span>
           </template>
           <template>
@@ -13,7 +13,12 @@
             <van-index-bar>
               <template v-for="(value, key) in filter.citys">
                 <van-index-anchor :key="key" :index="key"></van-index-anchor>
-                <van-cell v-for="city in value" :key="city" :title="city" @click="selectCity(city)"></van-cell>
+                <van-cell
+                  v-for="city in value"
+                  :key="city"
+                  :title="city"
+                  @click="selectCity(city)"
+                ></van-cell>
               </template>
             </van-index-bar>
           </template>
@@ -22,8 +27,14 @@
       <!-- 横向滚动的tags -->
       <div class="scroll-wrap" ref="scroll">
         <div class="content">
-          <van-tag v-for="(item, index) in types" :key="index" @click="typeIndex = index" round
-            :class="{ animated: types.length !== 0 }" :type="typeIndex === index ? 'primary' : ''">
+          <van-tag
+            v-for="(item, index) in types"
+            :key="index"
+            @click="typeIndex = index"
+            round
+            :class="{ animated: types.length !== 0 }"
+            :type="typeIndex === index ? 'primary' : ''"
+          >
             {{ item.name }}
           </van-tag>
         </div>
@@ -45,12 +56,24 @@
         <i class="iconfont iconicon-mine-mianjing"></i>已答题库
       </div>
       <!-- 环形进度条 -->
-      <van-circle v-model="currentRate" :rate="rate" :color="gradientColor" size="120" speed="100"
-        :stroke-width="70" stroke-linecap="round" layer-color="transparent">
+      <van-circle
+        v-model="currentRate"
+        :rate="rate"
+        :color="gradientColor"
+        size="120"
+        speed="100"
+        :stroke-width="70"
+        stroke-linecap="round"
+        layer-color="transparent"
+      >
         <template>
           <div class="circle-bg">
             <h2>顺序刷题</h2>
-            <span>{{ userData.correctQuestions.toFixed(0) }}/{{ userData.totalCount.toFixed(0) }}</span>
+            <span
+              >{{ userData.correctQuestions.toFixed(0) }}/{{
+                userData.totalCount.toFixed(0)
+              }}</span
+            >
           </div>
         </template>
       </van-circle>
@@ -61,7 +84,9 @@
       <span>{{ userData.totalCount.toFixed(0) }}</span>
     </div>
     <!-- 开始按钮 -->
-    <van-button @click="startInterview" class="question-button" type="default">模拟面试</van-button>
+    <van-button @click="startInterview" class="question-button" type="default"
+      >模拟面试</van-button
+    >
   </div>
 </template>
 
@@ -286,13 +311,13 @@ export default {
       transform: translate(-50%, -50%);
     }
     .van-circle::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 100%;
       height: 100%;
       left: 0;
       top: 0;
-      background-image: url('../../assets/circleBg.png');
+      background-image: url("../../assets/circleBg.png");
       background-size: 100%;
     }
     .circle-bg {

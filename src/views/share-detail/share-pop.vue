@@ -7,17 +7,21 @@
           <div class="share-content-box">
             <div class="title">{{ detail.title }}</div>
             <div class="user-box">
-              <img :src="detail.author && detail.author.avatar" alt="">
+              <img :src="detail.author && detail.author.avatar" alt="" />
               <span>{{ detail.author && detail.author.nickname }}</span>
             </div>
             <div class="content">{{ detail.contentText }}</div>
-            <img class="logo" src="@/assets/ios3x_img_share_logo@3x.png" alt="">
+            <img
+              class="logo"
+              src="@/assets/ios3x_img_share_logo@3x.png"
+              alt=""
+            />
             <img :src="codeUrl" class="code" />
             <div class="direction">长按识别二维码查看原文</div>
           </div>
         </div>
       </div>
-      <img v-else :src="shareImgUrl" class="share-img" alt="">
+      <img v-else :src="shareImgUrl" class="share-img" alt="" />
     </div>
   </van-popup>
 </template>
@@ -120,7 +124,7 @@ export default {
         overflow: hidden;
         position: relative;
         &::after {
-          content: '';
+          content: "";
           width: 100%;
           bottom: -2px;
           left: 0;

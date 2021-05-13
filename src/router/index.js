@@ -116,7 +116,7 @@ const router = new VueRouter({
 
 // 处理路由异常，重写路由的push方法
 const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location) {
+VueRouter.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(error => error)
 }
 

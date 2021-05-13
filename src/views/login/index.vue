@@ -7,20 +7,40 @@
       </template>
     </van-nav-bar>
     <!-- 表单 -->
-    <van-form @submit="onLogin" @failed="onFailed" ref="login-form" :show-error="false">
+    <van-form
+      @submit="onLogin"
+      @failed="onFailed"
+      ref="login-form"
+      :show-error="false"
+    >
       <!-- 手机号 -->
-      <van-field v-model="user.mobile" :rules="formRules.mobile" name="mobile" type="tel" placeholder="请输入手机号">
+      <van-field
+        v-model="user.mobile"
+        :rules="formRules.mobile"
+        name="mobile"
+        type="tel"
+        placeholder="请输入手机号"
+      >
         <template #left-icon>
           <i class="iconfont iconbianzu1"></i>
         </template>
       </van-field>
       <!-- 验证码 -->
-      <van-field v-model="user.code" :rules="formRules.code" name="code" type="digit" clearable placeholder="请输入验证码" >
+      <van-field
+        v-model="user.code"
+        :rules="formRules.code"
+        name="code"
+        type="digit"
+        clearable
+        placeholder="请输入验证码"
+      >
         <template #left-icon>
           <i class="iconfont iconyanzhengma"></i>
         </template>
         <template #button>
-          <van-button @click.prevent="onCaptcha" type="primary" size="mini">{{ buttonText }}</van-button>
+          <van-button @click.prevent="onCaptcha" type="primary" size="mini">{{
+            buttonText
+          }}</van-button>
         </template>
       </van-field>
       <div class="submit-box">
@@ -36,7 +56,7 @@ import { getCode, login } from '@/api'
 // 导入token工具函数  
 import { setLocal } from '@/utils/local'
 // map辅助函数  
-import { mapMutations } from 'vuex'  
+import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -93,7 +113,7 @@ export default {
           // 提示消息
           message: error.errors[0].message,
           // 以防手机键盘太高看不见操作面板  
-          position: 'top'  
+          position: 'top'
         })
       }
     },
@@ -128,9 +148,9 @@ export default {
       // 如果有就返回
       if (_redirect) {
         // false
-        const isExist = backPaths.some(path => _redirect.indexOf(path) === 0)  
+        const isExist = backPaths.some(path => _redirect.indexOf(path) === 0)
         if (!isExist) {
-          return this.$router.push(_redirect) 
+          return this.$router.push(_redirect)
         }
       }
       // 如果没有就回到发现页

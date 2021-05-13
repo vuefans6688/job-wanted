@@ -2,7 +2,7 @@
   <div class="company-detail-container">
     <!-- 顶部区域 -->
     <div class="top-box">
-      <img :src="detail.logo">
+      <img :src="detail.logo" />
       <!-- 导航栏 -->
       <van-nav-bar @click-left="$router.push('/company?isScroll=true')">
         <template #left>
@@ -19,7 +19,7 @@
             <li>{{ detail.scale }}</li>
           </ul>
         </div>
-        <img :src="detail.logo" alt="">
+        <img :src="detail.logo" alt="" />
       </div>
       <!-- 工作时间 -->
       <div class="time-box">
@@ -63,8 +63,10 @@
       <!-- 简介 -->
       <div class="desc-box">
         <h3>公司简介</h3>
-        <p :class="{ 'van-multi-ellipsis--l6': !showMore }">{{ detail.desc }}</p>
-        <span @click="showMore = true" v-if="!showMore"> 
+        <p :class="{ 'van-multi-ellipsis--l6': !showMore }">
+          {{ detail.desc }}
+        </p>
+        <span @click="showMore = true" v-if="!showMore">
           展开更多 <i class="iconfont iconicon-zhankai"></i>
         </span>
       </div>
@@ -73,7 +75,13 @@
         <h3>公司照片</h3>
         <div class="scroll-box">
           <div class="content">
-            <img @click="previewImg(index)" v-for="(item, index) in detail.sliders" :key="index" :src="item" alt="">
+            <img
+              @click="previewImg(index)"
+              v-for="(item, index) in detail.sliders"
+              :key="index"
+              :src="item"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -81,27 +89,20 @@
       <div class="business-box">
         <h3>工商信息</h3>
         <ul>
-          <li>
-            <span>公司全称</span>{{ detail.fullname }}
-          </li>
-          <li>
-            <span>成立时间</span>{{ detail.establishedTime }}
-          </li>
-          <li>
-            <span>注册资本</span>{{ detail.capital }}
-          </li>
-          <li>
-            <span>法人代表</span>{{ detail.legalPerson }}
-          </li>
-          <li>
-            <span>信息来源</span>{{ detail.messageSource }}
-          </li>
+          <li><span>公司全称</span>{{ detail.fullname }}</li>
+          <li><span>成立时间</span>{{ detail.establishedTime }}</li>
+          <li><span>注册资本</span>{{ detail.capital }}</li>
+          <li><span>法人代表</span>{{ detail.legalPerson }}</li>
+          <li><span>信息来源</span>{{ detail.messageSource }}</li>
         </ul>
       </div>
       <!-- 面试评价 -->
       <div class="comment-box">
-        <h3>面试评价 
-          <van-button @click="addComment" type="info" size="mini">写评论</van-button>
+        <h3>
+          面试评价
+          <van-button @click="addComment" type="info" size="mini"
+            >写评论</van-button
+          >
         </h3>
         <!-- 打分 -->
         <div class="score-box">
@@ -126,42 +127,63 @@
         </div>
         <!-- 列表项 -->
         <div class="items">
-          <van-list @load="onLoad" v-model="loading" :finished="finished" finished-text="没有更多了">
-            <comment-item v-for="item in comments" :key="item.id" :item="item"></comment-item>
+          <van-list
+            @load="onLoad"
+            v-model="loading"
+            :finished="finished"
+            finished-text="没有更多了"
+          >
+            <comment-item
+              v-for="item in comments"
+              :key="item.id"
+              :item="item"
+            ></comment-item>
           </van-list>
         </div>
       </div>
     </div>
     <!-- 底部区域 -->
     <div class="bottom-box van-hairline--top">
-      <div @click="$router.push(`/company-position/${$route.params.id}`)" class="item van-hairline--surround">
-        <span>在招职位
+      <div
+        @click="$router.push(`/company-position/${$route.params.id}`)"
+        class="item van-hairline--surround"
+      >
+        <span
+          >在招职位
           <span class="num">{{ detail.positions }}</span>
         </span>
       </div>
-      <div @click="$router.push(`/interview?company=${$route.params.id}`)" class="item">
-        <span>企业面试题
+      <div
+        @click="$router.push(`/interview?company=${$route.params.id}`)"
+        class="item"
+      >
+        <span
+          >企业面试题
           <span class="num">{{ detail.questions }}</span>
         </span>
       </div>
     </div>
     <!-- 弹框 -->
-    <position-pop @on-added="onAdded" v-model="showPop" :company-id="+$route.params.id"></position-pop>
+    <position-pop
+      @on-added="onAdded"
+      v-model="showPop"
+      :company-id="+$route.params.id"
+    ></position-pop>
   </div>
 </template>
 
 <script>
 // 导入数据接口
-import { companyDetail, companyComments } from '@/api'  
+import { companyDetail, companyComments } from '@/api'
 import { ImagePreview } from 'vant'
 // 导入并注册组件
-import CommentItem from './comment-item'  
+import CommentItem from './comment-item'
 import PositionPop from './position-pop'
 // 导入辅助函数
-import { mapState } from 'vuex'  
+import { mapState } from 'vuex'
 export default {
   // 注册组件
-  components: {  
+  components: {
     CommentItem,
     PositionPop
   },

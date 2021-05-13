@@ -1,7 +1,7 @@
 <template>
   <div class="item van-hairline--bottom">
     <div @click="handleCover" class="cover">
-      <img :src="item.logo" alt="">
+      <img :src="item.logo" alt="" />
     </div>
     <div class="content-box">
       <div class="top">
@@ -17,8 +17,8 @@
         <span class="tag">{{ item.scale }}</span>
       </div>
       <div class="bottom">
-        在招职位: <span>{{ item.positions }}</span> 
-        / 最后更新时间: <span>{{ item.updated_at | formatTime }}</span>
+        在招职位: <span>{{ item.positions }}</span> / 最后更新时间:
+        <span>{{ item.updated_at | formatTime }}</span>
       </div>
     </div>
   </div>

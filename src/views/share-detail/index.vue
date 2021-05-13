@@ -11,9 +11,11 @@
     <div class="top-box">
       <div class="title">{{ detail.title }}</div>
       <div class="info-box">
-        <img :src="detail.author && detail.author.avatar" alt="">
+        <img :src="detail.author && detail.author.avatar" alt="" />
         <div class="name-box">
-          <span class="name">{{ detail.author && detail.author.nickname }}</span>
+          <span class="name">{{
+            detail.author && detail.author.nickname
+          }}</span>
           <span class="time">{{ detail.created_at | formatTime }}</span>
         </div>
       </div>
@@ -24,20 +26,44 @@
     <div class="comment-box">
       <!-- 顶部评论 -->
       <div class="title">评论 <span class="num">68</span></div>
-      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+      <van-list
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
         <!-- 每一项 -->
-        <comment-item @re-comment="reComment(item)" v-for="item in list" :key="item.id" :item="item"></comment-item>
+        <comment-item
+          @re-comment="reComment(item)"
+          v-for="item in list"
+          :key="item.id"
+          :item="item"
+        ></comment-item>
       </van-list>
     </div>
     <!-- 底部盒子 -->
     <div class="bottom-box">
       <div class="input" @click="showComment">我来补充两句</div>
-      <div class="shoucang" :class="{ actived: collectArticles.includes(id) }" @click="collect">
-        <i class="iconfont iconbtn-shoucang-nor" :class="{ actived: collectArticles.includes(id) }"></i>
+      <div
+        class="shoucang"
+        :class="{ actived: collectArticles.includes(id) }"
+        @click="collect"
+      >
+        <i
+          class="iconfont iconbtn-shoucang-nor"
+          :class="{ actived: collectArticles.includes(id) }"
+        ></i>
         <span>{{ detail.collect }}</span>
       </div>
-      <div class="star" :class="{ actived: starArticles.includes(id) }" @click="star">
-        <i class="iconfont iconbtn-dianzan-small-nor" :class="{ actived: starArticles.includes(id) }"></i>
+      <div
+        class="star"
+        :class="{ actived: starArticles.includes(id) }"
+        @click="star"
+      >
+        <i
+          class="iconfont iconbtn-dianzan-small-nor"
+          :class="{ actived: starArticles.includes(id) }"
+        ></i>
         <span>{{ detail.star }}</span>
       </div>
       <div class="share" @click="shareArticle">
@@ -46,10 +72,24 @@
       </div>
     </div>
     <!-- 底部回复弹出层 -->
-    <van-popup class="input-pop" v-model="show" position="bottom" :style="{ height: '24%' }">
-      <van-field autosize type="textarea" autofocus v-model.trim="inputValue" :placeholder="placeholder" rows="4">
+    <van-popup
+      class="input-pop"
+      v-model="show"
+      position="bottom"
+      :style="{ height: '24%' }"
+    >
+      <van-field
+        autosize
+        type="textarea"
+        autofocus
+        v-model.trim="inputValue"
+        :placeholder="placeholder"
+        rows="4"
+      >
       </van-field>
-      <span :class="{ disabled: !inputValue.trim() }" @click="publishComment">发送</span>
+      <span :class="{ disabled: !inputValue.trim() }" @click="publishComment"
+        >发送</span
+      >
     </van-popup>
     <!-- 分享弹出层 -->
     <share-pop v-model="showShare" :detail="detail"></share-pop>
@@ -92,7 +132,7 @@ export default {
     }
   },
   created () {
-    this.loadArticlesDetail() 
+    this.loadArticlesDetail()
   },
   computed: {
     ...mapGetters(['starArticles', 'collectArticles'])

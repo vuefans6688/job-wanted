@@ -1,7 +1,11 @@
 <template>
   <div class="message-container">
     <!-- 导航栏 -->
-    <van-nav-bar title="我的消息" right-text="全部已读" @click-left="$router.push('/my')">
+    <van-nav-bar
+      title="我的消息"
+      right-text="全部已读"
+      @click-left="$router.push('/my')"
+    >
       <template #left>
         <i class="iconfont iconbtn-nav-back"></i>
       </template>

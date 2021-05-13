@@ -16,8 +16,12 @@
           <!-- 列表区域 -->
           <div class="interview-list">
             <van-skeleton v-if="!technicList" title :row="6"></van-skeleton>
-            <technic-item v-for="item in technicList" :key="item.id"
-              @item-click="$router.push(`/technic-detail/${item.id}`)" :item="item">
+            <technic-item
+              v-for="item in technicList"
+              :key="item.id"
+              @item-click="$router.push(`/technic-detail/${item.id}`)"
+              :item="item"
+            >
             </technic-item>
           </div>
         </div>
@@ -35,8 +39,12 @@
           </div>
           <!-- 列表 -->
           <div class="experience-list">
-            <share-item v-for="item in shartList" :key="item.id"
-              @share-item-click="$router.push(`/share-detail/${item.id}`)" :item="item">
+            <share-item
+              v-for="item in shartList"
+              :key="item.id"
+              @share-item-click="$router.push(`/share-detail/${item.id}`)"
+              :item="item"
+            >
             </share-item>
           </div>
         </div>
@@ -232,7 +240,8 @@ export default {
         .iconfont {
           margin-right: 7px;
         }
-        .mes, .zan {
+        .mes,
+        .zan {
           display: flex;
           align-items: center;
         }

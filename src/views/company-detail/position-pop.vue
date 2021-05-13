@@ -2,7 +2,12 @@
   <!-- 弹出层 -->
   <div class="position-pop-container">
     <!-- 评分弹框 -->
-    <van-popup @click-overlay="$emit('input', false)" v-model="value" :close-on-click-overlay="false" class="score-popup">
+    <van-popup
+      @click-overlay="$emit('input', false)"
+      v-model="value"
+      :close-on-click-overlay="false"
+      class="score-popup"
+    >
       <div class="content">
         <h3>请根据实际情况为企业打分</h3>
         <ul class="detail-box">
@@ -20,16 +25,34 @@
           </li>
         </ul>
         <!-- 职位选择 -->
-        <van-field readonly clickable class="position-van-field" name="position" :value="position"
-          @click="showPositionPicker = true" label="职位选择" placeholder="点击选择面试的职位">
+        <van-field
+          readonly
+          clickable
+          class="position-van-field"
+          name="position"
+          :value="position"
+          @click="showPositionPicker = true"
+          label="职位选择"
+          placeholder="点击选择面试的职位"
+        >
         </van-field>
         <!-- 输入区域 -->
-        <van-field v-model="content" rows="6" type="textarea" placeholder="请输入留言" class="score-field"></van-field>
+        <van-field
+          v-model="content"
+          rows="6"
+          type="textarea"
+          placeholder="请输入留言"
+          class="score-field"
+        ></van-field>
         <!-- 按钮 -->
         <div class="bottom-box van-hairline--top">
           <div class="cancel-button" @click="$emit('input', false)">取消</div>
           <!-- 通过取反设置内容 -->
-          <div @click="submitComment" :class="{ disabled: !(positionId && content) }" class="submit-button van-hairline--left">
+          <div
+            @click="submitComment"
+            :class="{ disabled: !(positionId && content) }"
+            class="submit-button van-hairline--left"
+          >
             提交
           </div>
         </div>
@@ -37,8 +60,13 @@
     </van-popup>
     <!-- 输入框 -->
     <van-popup v-model="showPositionPicker" position="bottom">
-      <van-picker @confirm="onConfirm" @cancel="showPositionPicker = false" value-key="name" 
-        :columns="positions" show-toolbar>
+      <van-picker
+        @confirm="onConfirm"
+        @cancel="showPositionPicker = false"
+        value-key="name"
+        :columns="positions"
+        show-toolbar
+      >
       </van-picker>
     </van-popup>
   </div>
@@ -46,7 +74,7 @@
 
 <script>
 // 导入接口
-import { companyPositions, addComment } from '@/api'  
+import { companyPositions, addComment } from '@/api'
 export default {
   data () {
     return {

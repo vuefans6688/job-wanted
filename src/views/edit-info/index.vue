@@ -18,17 +18,42 @@
     <div class="main-box">
       <van-form ref="form">
         <!-- 昵称 -->
-        <van-field v-if="property === 'nickname'" v-model="form.nickname" name="nickname" placeholder="请输入昵称"></van-field>
+        <van-field
+          v-if="property === 'nickname'"
+          v-model="form.nickname"
+          name="nickname"
+          placeholder="请输入昵称"
+        ></van-field>
         <!-- 头像 -->
-        <van-field v-else-if="property === 'avatar'" name="avatar" class="icon-field">
+        <van-field
+          v-else-if="property === 'avatar'"
+          name="avatar"
+          class="icon-field"
+        >
           <template #input>
-            <van-uploader v-model="files" :before-read="beforeRead" :after-read="afterRead" :max-count="1" preview-size="200px"></van-uploader>
+            <van-uploader
+              v-model="files"
+              :before-read="beforeRead"
+              :after-read="afterRead"
+              :max-count="1"
+              preview-size="200px"
+            ></van-uploader>
           </template>
         </van-field>
         <!-- 个人简介 -->
-        <van-field v-else-if="property === 'intro'" v-model="form.intro" name="intro" placeholder="请输入个人简介"></van-field>
+        <van-field
+          v-else-if="property === 'intro'"
+          v-model="form.intro"
+          name="intro"
+          placeholder="请输入个人简介"
+        ></van-field>
         <!-- 职位名称 -->
-        <van-field v-else-if="property === 'position'" v-model="form.position" name="position" placeholder="请输入职位名"></van-field>
+        <van-field
+          v-else-if="property === 'position'"
+          v-model="form.position"
+          name="position"
+          placeholder="请输入职位名"
+        ></van-field>
       </van-form>
     </div>
   </div>
@@ -38,32 +63,32 @@
 // 导入接口
 import { edit, uploadAvatar } from '@/api'
 // 导入辅助函数  
-import { mapState, mapActions } from 'vuex'  
+import { mapState, mapActions } from 'vuex'
 export default {
   data () {
     return {
       // 修改个人信息的字段
-      form: {  
+      form: {
         nickname: '',
         intro: '',
         avatar: '',
         position: ''
       },
       // 上传的文件信息
-      files: [],  
+      files: [],
       property: this.$route.query.property,
       // 属性对应关系
-      map: {  
+      map: {
         intro: '个性签名',
         nickname: '昵称',
         avatar: '头像',
         position: '职位'
       },
       // 数据是否变更了
-      isEdit: false  
+      isEdit: false
     }
   },
-  created () { 
+  created () {
     this.getStateData()
   },
   computed: {
@@ -72,23 +97,23 @@ export default {
   methods: {
     ...mapActions(['getUserInfo']),
     // 获取vuex的数据并赋值
-    getStateData () {  
+    getStateData () {
       this.form.nickname = this.userInfo.nickname
       this.form.intro = this.userInfo.intro
       this.form.position = this.userInfo.position
       // 上传组件使用的图片
       this.files = [{ url: this.userInfo.avatar }]
       // 注册监听  
-      this.$watch('form', () => {  
-          this.isEdit = true
-        },
+      this.$watch('form', () => {
+        this.isEdit = true
+      },
         {
           deep: true
         }
       )
     },
     // 头像格式校验
-    beforeRead (file) {  
+    beforeRead (file) {
       const imageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp']
       if (!imageTypes.includes(file.type)) {
         this.$toast('请上传图片格式')
@@ -97,19 +122,19 @@ export default {
       return true
     },
     // 上传头像
-    async afterRead (file) {  
+    async afterRead (file) {
       file.status = 'uploading'
       file.message = '上传中...'
       const res = await uploadAvatar(file.file)
       file.status = 'success'
       file.message = '上传成功'
       // 保存图片地址
-      this.form.avatar = res.data[0].id  
+      this.form.avatar = res.data[0].id
     },
     // 数据提交
-    submit () {  
-      this.$refs.form.validate().then(async () => {     
-        await edit({  
+    submit () {
+      this.$refs.form.validate().then(async () => {
+        await edit({
           [this.property]: this.form[this.property]
         })
         await this.getUserInfo(true)

@@ -1,7 +1,12 @@
 <template>
   <div class="item">
     <div class="content">
-      <div @click="$emit('item-click', item.id)" class="title van-multi-ellipsis--l2">{{ item.title }}</div>
+      <div
+        @click="$emit('item-click', item.id)"
+        class="title van-multi-ellipsis--l2"
+      >
+        {{ item.title }}
+      </div>
       <div class="info">
         <div class="time">{{ item.created_at | formatTime }}</div>
         <div class="see">
@@ -9,13 +14,17 @@
           <span>{{ item.read }}</span>
         </div>
         <div class="zan">
-          <i class="iconfont iconbtn-dianzan-small-nor" :class="{ actived: isActive }" @click="star"></i>
+          <i
+            class="iconfont iconbtn-dianzan-small-nor"
+            :class="{ actived: isActive }"
+            @click="star"
+          ></i>
           <span>{{ item.star }}</span>
         </div>
       </div>
     </div>
     <div @click="$emit('item-click', item.id)" v-if="item.cover" class="cover">
-      <img :src="item.cover" alt="">
+      <img :src="item.cover" alt="" />
     </div>
   </div>
 </template>

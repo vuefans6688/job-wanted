@@ -1,7 +1,11 @@
 <template>
   <div class="chart-container">
     <div class="top-box">
-      <van-nav-bar title="市场数据" :border="false" @click-left="$router.push('/find')">
+      <van-nav-bar
+        title="市场数据"
+        :border="false"
+        @click-left="$router.push('/find')"
+      >
         <template #left>
           <i class="iconfont iconbtn-nav-back"></i>
         </template>
@@ -9,21 +13,42 @@
       <!-- 使用下拉菜单实现 -->
       <van-dropdown-menu>
         <van-dropdown-item :title="selectCity" ref="city-drop">
-          <van-search v-model="cityQuery" shape="round" placeholder="请输入搜索关键词"></van-search>
+          <van-search
+            v-model="cityQuery"
+            shape="round"
+            placeholder="请输入搜索关键词"
+          ></van-search>
           <!-- 索引列 -->
           <van-index-bar>
             <template v-for="(citys, key) in indexData">
               <van-index-anchor :index="key" :key="key"></van-index-anchor>
-              <van-cell v-for="item in citys" :title="item[0]" @click="selectedCity(item)" 
-                :key="item[0]">
+              <van-cell
+                v-for="item in citys"
+                :title="item[0]"
+                @click="selectedCity(item)"
+                :key="item[0]"
+              >
               </van-cell>
-            </template> 
+            </template>
           </van-index-bar>
         </van-dropdown-item>
-        <van-dropdown-item :title="selectPosition" v-model="selectPosition" ref="positionDrop">
+        <van-dropdown-item
+          :title="selectPosition"
+          v-model="selectPosition"
+          ref="positionDrop"
+        >
           <div class="list">
-            <van-search v-model="positionQuery" shape="round" placeholder="请输入搜索关键词"></van-search>
-            <van-cell v-for="item in positions" :key="item" @click="selectedPosition(item)" :title="item"></van-cell>
+            <van-search
+              v-model="positionQuery"
+              shape="round"
+              placeholder="请输入搜索关键词"
+            ></van-search>
+            <van-cell
+              v-for="item in positions"
+              :key="item"
+              @click="selectedPosition(item)"
+              :title="item"
+            ></van-cell>
           </div>
         </van-dropdown-item>
       </van-dropdown-menu>

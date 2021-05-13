@@ -4,7 +4,7 @@
     <div class="top-box" v-if="userInfo">
       <div class="user-box">
         <div class="image-box">
-          <img :src="userInfo && userInfo.avatar" alt="">
+          <img :src="userInfo && userInfo.avatar" alt="" />
         </div>
         <div class="info-box">
           <span>{{ userInfo && userInfo.nickname }}</span>
@@ -37,7 +37,12 @@
     <!-- 主体内容区域 -->
     <div class="main-box" v-if="userInfo">
       <!-- 顶部的脱标cell -->
-      <van-cell to="/edit-info?property=position" :value="userInfo.position" title="我的岗位" class="my-cell">
+      <van-cell
+        to="/edit-info?property=position"
+        :value="userInfo.position"
+        title="我的岗位"
+        class="my-cell"
+      >
         <!-- 使用 right-icon 插槽来自定义右侧图标 -->
         <template #icon>
           <i class="iconfont iconicon-mine-gangwei"></i>
@@ -75,7 +80,12 @@
       </div>
       <!-- 底部的cell -->
       <van-cell-group>
-        <van-cell title="我的面经分享" value="0" :border="false" class="my-cell">
+        <van-cell
+          title="我的面经分享"
+          value="0"
+          :border="false"
+          class="my-cell"
+        >
           <!-- 使用 right-icon 插槽来自定义右侧图标 -->
           <template #icon>
             <i class="iconfont iconicon-mine-mianjing"></i>
@@ -84,7 +94,13 @@
             <i class="iconfont iconicon-more"></i>
           </template>
         </van-cell>
-        <van-cell to="/my/message" title="我的消息" :value="userInfo.systemMessages" :border="false" class="my-cell">
+        <van-cell
+          to="/my/message"
+          title="我的消息"
+          :value="userInfo.systemMessages"
+          :border="false"
+          class="my-cell"
+        >
           <!-- 使用 right-icon 插槽来自定义右侧图标 -->
           <template #icon>
             <i class="iconfont iconicon-mine-xiaoxi"></i>
@@ -93,7 +109,12 @@
             <i class="iconfont iconicon-more"></i>
           </template>
         </van-cell>
-        <van-cell title="收藏的题库" :value="userInfo.collectQuestions.length" :border="false" class="my-cell">
+        <van-cell
+          title="收藏的题库"
+          :value="userInfo.collectQuestions.length"
+          :border="false"
+          class="my-cell"
+        >
           <!-- 使用 right-icon 插槽来自定义右侧图标 -->
           <template #icon>
             <i class="iconfont iconicon-mine-tikushoucang"></i>
@@ -111,7 +132,12 @@
             <i class="iconfont iconicon-more"></i>
           </template>
         </van-cell>
-        <van-cell title="我的错题" :value="userInfo.errorNum" :border="false" class="my-cell">
+        <van-cell
+          title="我的错题"
+          :value="userInfo.errorNum"
+          :border="false"
+          class="my-cell"
+        >
           <!-- 使用 right-icon 插槽来自定义右侧图标 -->
           <template #icon>
             <i class="iconfont iconicon-mine-cuoti"></i>
@@ -127,22 +153,22 @@
 
 <script>
 // map辅助函数
-import { mapState, mapMutations, mapActions } from 'vuex'  
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   // 通过vuex的actions获取用户信息
   async activated () {
-    await this.getUserInfo()  
+    await this.getUserInfo()
   },
   methods: {
     // 通过辅助函数合并vuex中的mutations
     ...mapMutations(['SET_USER_INFO']),
     // 通过辅助函数合并vuex中的actions  
-    ...mapActions(['getUserInfo'])  
+    ...mapActions(['getUserInfo'])
   },
   computed: {
     ...mapState(['userInfo']),
     // 正确率计算
-    rightPercent () {  
+    rightPercent () {
       if (this.userInfo.submitNum === 0) {
         return '0%'
       } else {
@@ -176,7 +202,7 @@ export default {
           border-radius: 50%;
           margin-left: 10px;
         }
-      } 
+      }
       .info-box {
         display: flex;
         flex-direction: column;
@@ -201,7 +227,7 @@ export default {
           color: #fff;
           font-size: 18px;
         }
-      }    
+      }
     }
     .data-box {
       margin-top: 40px;

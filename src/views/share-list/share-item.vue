@@ -1,7 +1,13 @@
 <template>
   <div class="item van-hairline--bottom">
-    <div @click="$emit('share-item-click', item.id)" v-html="item.title" class="title van-multi-ellipsis--l2"></div>
-    <div @click="$emit('share-item-click', item.id)" class="content ">{{ item.content }}</div>
+    <div
+      @click="$emit('share-item-click', item.id)"
+      v-html="item.title"
+      class="title van-multi-ellipsis--l2"
+    ></div>
+    <div @click="$emit('share-item-click', item.id)" class="content">
+      {{ item.content }}
+    </div>
     <div class="info-box">
       <div class="userinfo">
         <img :src="item.author.avatar" alt="" />
@@ -13,7 +19,11 @@
         <span>{{ item.article_comments }}</span>
       </div>
       <div class="zan">
-        <i :class="{ actived: starArticles.includes(item.id) }" @click="star" class="iconfont iconbtn-dianzan-small-nor"></i>
+        <i
+          :class="{ actived: starArticles.includes(item.id) }"
+          @click="star"
+          class="iconfont iconbtn-dianzan-small-nor"
+        ></i>
         <span>{{ item.star }}</span>
       </div>
     </div>

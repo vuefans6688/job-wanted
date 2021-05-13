@@ -1,7 +1,11 @@
 <template>
   <div class="experience-list-container">
     <div class="top-box">
-      <van-nav-bar title="面试技巧" :border="false" @click-left="$router.push('/find')">
+      <van-nav-bar
+        title="面试技巧"
+        :border="false"
+        @click-left="$router.push('/find')"
+      >
         <template #left>
           <i class="iconfont iconbtn-nav-back"></i>
         </template>
@@ -12,9 +16,19 @@
     </div>
     <!-- 列表 -->
     <div class="experience-box">
-      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+      <van-list
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
         <div class="experience-list">
-          <share-item v-for="item in list" :key="item.id" :item="item" @share-item-click="shareItemClick">
+          <share-item
+            v-for="item in list"
+            :key="item.id"
+            :item="item"
+            @share-item-click="shareItemClick"
+          >
           </share-item>
         </div>
       </van-list>

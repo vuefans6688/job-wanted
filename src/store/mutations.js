@@ -1,5 +1,5 @@
 export default {
-  
+
   /**
    * 修改用户信息
    * @param {*} state
@@ -47,7 +47,7 @@ export default {
     // 保存面试题
     state.questionList = questionList
   },
-  
+
   // 清空面试题
   CLEAR_QUESTION (state) {
     state.questionList = []

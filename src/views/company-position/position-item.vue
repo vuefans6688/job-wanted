@@ -1,7 +1,10 @@
 <template>
-  <div class="item van-hairline--bottom" @click="$router.push('/position-detail/' + item.id)">
+  <div
+    class="item van-hairline--bottom"
+    @click="$router.push('/position-detail/' + item.id)"
+  >
     <h3 class="name">
-      <span>{{ item.name }}</span> 
+      <span>{{ item.name }}</span>
       <span class="order">{{ item.salary }}</span>
     </h3>
     <div class="tags">

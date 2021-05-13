@@ -2,14 +2,23 @@
   <div class="comment">
     <!-- 姓名 点赞区域 -->
     <div class="info-box">
-      <img :src="item.author && item.author.avatar" @click="$emit('re-comment', item)" alt="">
+      <img
+        :src="item.author && item.author.avatar"
+        @click="$emit('re-comment', item)"
+        alt=""
+      />
       <div class="name-box">
         <span class="name">{{ item.author && item.author.nickname }}</span>
         <span class="time">{{ item.created_at | formatTime }}</span>
       </div>
       <div @click="star" class="zan-box">
-        <span :class="{ active: starComments.includes(item.id) }">{{ item.star }}</span>
-        <i :class="{ active: starComments.includes(item.id) }" class="iconfont iconbtn-dianzan-small-nor"></i>
+        <span :class="{ active: starComments.includes(item.id) }">{{
+          item.star
+        }}</span>
+        <i
+          :class="{ active: starComments.includes(item.id) }"
+          class="iconfont iconbtn-dianzan-small-nor"
+        ></i>
       </div>
     </div>
     <!-- 评论内容 -->

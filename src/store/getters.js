@@ -1,5 +1,5 @@
 export default {
-  
+
   // 获取点赞的文章
   starArticles (state) {
     if (state.userInfo) {
@@ -31,7 +31,7 @@ export default {
     }
     return []
   },
-  
+
   // 获取面试题
   getQuestion (state) {
     return function (questionId) {

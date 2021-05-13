@@ -18,20 +18,34 @@
       <div class="item" v-for="item in list" :key="item.year">
         <span>{{ item.year }}</span>
         <div class="process">
-          <div class="step" :style="{ width: (item.salary / chartData.topSalary) * 100 + '%' }">
+          <div
+            class="step"
+            :style="{ width: (item.salary / chartData.topSalary) * 100 + '%' }"
+          >
             ¥{{ item.salary }}
           </div>
         </div>
         <div class="arrow-box">
-          <i :class="{ 'iconicon-shangsheng': item.percent > 0, 'iconicon-xiajiang': item.percent < 0 }" class="iconfont"></i>
-          <span class="percent-span">{{ item.percent && item.percent + '%' }}</span>
+          <i
+            :class="{
+              'iconicon-shangsheng': item.percent > 0,
+              'iconicon-xiajiang': item.percent < 0,
+            }"
+            class="iconfont"
+          ></i>
+          <span class="percent-span">{{
+            item.percent && item.percent + "%"
+          }}</span>
         </div>
       </div>
     </div>
     <!-- 展开更多 -->
     <div class="more" @click="toggleMore">
-      <span>{{ list === chartData.yearSalary ? '收起显示' : '展开更多' }}</span>
-      <i class="iconfont iconicon-zhankai" :class="{ rotate: list === chartData.yearSalary }"></i>
+      <span>{{ list === chartData.yearSalary ? "收起显示" : "展开更多" }}</span>
+      <i
+        class="iconfont iconicon-zhankai"
+        :class="{ rotate: list === chartData.yearSalary }"
+      ></i>
     </div>
   </div>
 </template>

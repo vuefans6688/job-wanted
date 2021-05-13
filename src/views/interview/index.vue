@@ -3,7 +3,12 @@
     <!-- 顶部区域 -->
     <div class="top-box">
       <!-- 顶部导航 -->
-      <van-nav-bar :class="{ shadow: !company }" @click-left="back" @click-right="toggleAnswerSheet" :border="false">
+      <van-nav-bar
+        :class="{ shadow: !company }"
+        @click-left="back"
+        @click-right="toggleAnswerSheet"
+        :border="false"
+      >
         <template #left>
           <i class="iconfont iconbtn-nav-back"></i>
         </template>
@@ -11,7 +16,8 @@
           <span :class="{ disabled: !isStart }">答题卡</span>
         </template>
         <template #title>
-          <span class="custom-title">面试题
+          <span class="custom-title"
+            >面试题
             <span class="num">{{ questionList.length }}</span>
           </span>
         </template>
@@ -21,22 +27,42 @@
         <!-- 横向滚动的tags -->
         <div class="scroll-wrap">
           <div class="content" :class="{ disabled: isStart }">
-            <van-tag v-for="(item, index) in filterIndex" :key="index" @click="selectType(index)" round
-              :type="select.type === index ? 'primary' : ''">
+            <van-tag
+              v-for="(item, index) in filterIndex"
+              :key="index"
+              @click="selectType(index)"
+              round
+              :type="select.type === index ? 'primary' : ''"
+            >
               {{ item[0] }}
             </van-tag>
           </div>
         </div>
         <!-- 下拉菜单 -->
         <van-dropdown-menu>
-          <van-dropdown-item v-model="select.city" :options="cityOptions" :disabled="isStart" class="city-drop">
+          <van-dropdown-item
+            v-model="select.city"
+            :options="cityOptions"
+            :disabled="isStart"
+            class="city-drop"
+          >
             <template #title>城市</template>
           </van-dropdown-item>
-          <van-dropdown-item v-model="select.position" :options="potitionOptions" :disabled="isStart" class="experience-drop">
+          <van-dropdown-item
+            v-model="select.position"
+            :options="potitionOptions"
+            :disabled="isStart"
+            class="experience-drop"
+          >
             <!-- 标题插槽 -->
             <template #title>岗位</template>
           </van-dropdown-item>
-          <van-dropdown-item v-model="select.difficulty" :options="difficultyOptions" :disabled="isStart" class="order-drop">
+          <van-dropdown-item
+            v-model="select.difficulty"
+            :options="difficultyOptions"
+            :disabled="isStart"
+            class="order-drop"
+          >
             <!-- 标题插槽 -->
             <template #title>难度</template>
           </van-dropdown-item>
@@ -46,21 +72,33 @@
     <!-- 刷题区域 -->
     <div class="main-box" v-if="currentQuestion.detail">
       <p class="question">
-        【{{{ 1: '单选', 2: '多选', 3: '简答' }[currentQuestion.detail.type]}}】{{ currentQuestion.detail.title }}
+        【{{
+          { 1: "单选", 2: "多选", 3: "简答" }[currentQuestion.detail.type]
+        }}】{{ currentQuestion.detail.title }}
       </p>
       <div class="tags">
-        <span v-for="item in currentQuestion.detail.tag" :key="item" class="tag">{{ item }}</span>
+        <span
+          v-for="item in currentQuestion.detail.tag"
+          :key="item"
+          class="tag"
+          >{{ item }}</span
+        >
       </div>
       <!-- 选项区域 -->
       <div class="options-box van-hairline--bottom">
         <!-- 单选 选项 -->
-        <van-radio-group v-if="currentQuestion.detail && currentQuestion.detail.type === 1"
-          v-model="singleAnswer" :disabled="currentQuestion.result !== undefined">
+        <van-radio-group
+          v-if="currentQuestion.detail && currentQuestion.detail.type === 1"
+          v-model="singleAnswer"
+          :disabled="currentQuestion.result !== undefined"
+        >
           <!-- 特殊类名 error 错误 right 正确 -->
           <van-radio name="A" :class="setClass('A')">
             <template #icon> A. </template>
             <template>
-              <span class="content">{{ currentQuestion.detail.option[0] }}</span>
+              <span class="content">{{
+                currentQuestion.detail.option[0]
+              }}</span>
               <i class="iconfont iconicon-zhengque"></i>
               <i class="iconfont iconicon-cuowu"></i>
             </template>
@@ -68,7 +106,9 @@
           <van-radio name="B" :class="setClass('B')">
             <template #icon> B. </template>
             <template>
-              <span class="content">{{ currentQuestion.detail.option[1] }}</span>
+              <span class="content">{{
+                currentQuestion.detail.option[1]
+              }}</span>
               <i class="iconfont iconicon-zhengque"></i>
               <i class="iconfont iconicon-cuowu"></i>
             </template>
@@ -76,7 +116,9 @@
           <van-radio name="C" :class="setClass('C')">
             <template #icon> C. </template>
             <template>
-              <span class="content">{{ currentQuestion.detail.option[2] }}</span>
+              <span class="content">{{
+                currentQuestion.detail.option[2]
+              }}</span>
               <i class="iconfont iconicon-zhengque"></i>
               <i class="iconfont iconicon-cuowu"></i>
             </template>
@@ -84,19 +126,28 @@
           <van-radio name="D" :class="setClass('D')">
             <template #icon> D. </template>
             <template>
-              <span class="content">{{ currentQuestion.detail.option[3] }}</span>
+              <span class="content">{{
+                currentQuestion.detail.option[3]
+              }}</span>
               <i class="iconfont iconicon-zhengque"></i>
               <i class="iconfont iconicon-cuowu"></i>
             </template>
           </van-radio>
         </van-radio-group>
         <!-- 多选 选项 -->
-        <van-checkbox-group v-else-if="currentQuestion.detail && currentQuestion.detail.type === 2"
-          v-model="multipleAnswer" :disabled="currentQuestion.result !== undefined">
+        <van-checkbox-group
+          v-else-if="
+            currentQuestion.detail && currentQuestion.detail.type === 2
+          "
+          v-model="multipleAnswer"
+          :disabled="currentQuestion.result !== undefined"
+        >
           <van-checkbox name="A" :class="setClass('A')">
             <template #icon> A. </template>
             <template>
-              <span class="content">{{ currentQuestion.detail.option[0] }}</span>
+              <span class="content">{{
+                currentQuestion.detail.option[0]
+              }}</span>
               <i class="iconfont iconicon-zhengque"></i>
               <i class="iconfont iconicon-cuowu"></i>
             </template>
@@ -104,7 +155,9 @@
           <van-checkbox name="B" :class="setClass('B')">
             <template #icon> B. </template>
             <template>
-              <span class="content">{{ currentQuestion.detail.option[1] }}</span>
+              <span class="content">{{
+                currentQuestion.detail.option[1]
+              }}</span>
               <i class="iconfont iconicon-zhengque"></i>
               <i class="iconfont iconicon-cuowu"></i>
             </template>
@@ -112,7 +165,9 @@
           <van-checkbox name="C" :class="setClass('C')">
             <template #icon> C. </template>
             <template>
-              <span class="content">{{ currentQuestion.detail.option[2] }}</span>
+              <span class="content">{{
+                currentQuestion.detail.option[2]
+              }}</span>
               <i class="iconfont iconicon-zhengque"></i>
               <i class="iconfont iconicon-cuowu"></i>
             </template>
@@ -120,7 +175,9 @@
           <van-checkbox name="D" :class="setClass('D')">
             <template #icon> D. </template>
             <template>
-              <span class="content">{{ currentQuestion.detail.option[3] }}</span>
+              <span class="content">{{
+                currentQuestion.detail.option[3]
+              }}</span>
               <i class="iconfont iconicon-zhengque"></i>
               <i class="iconfont iconicon-cuowu"></i>
             </template>
@@ -153,9 +210,17 @@
         </div>
         <div class="record-wrap">
           <!-- 未录音状态 -->
-          <img v-if="isRecord" @click="isRecord = !isRecord" src="@/assets/luyk.png">
+          <img
+            v-if="isRecord"
+            @click="isRecord = !isRecord"
+            src="@/assets/luyk.png"
+          />
           <!-- 录音状态 -->
-          <img v-else @click="isRecord = !isRecord" src="@/assets/luyk_hover.png">
+          <img
+            v-else
+            @click="isRecord = !isRecord"
+            src="@/assets/luyk_hover.png"
+          />
           <!-- 删除按钮 -->
           <div v-if="isRecord" class="del-btn">
             <i class="iconfont iconbtn-delete-nor"></i>
@@ -166,14 +231,28 @@
       <div v-if="currentQuestion.result" class="answer-box">
         <h3>答案解析</h3>
         <div v-if="[1, 2].includes(currentQuestion.detail.type)" class="answer">
-          正确答案: {{ currentQuestion.detail.type === 1 ? currentQuestion.result.singleAnswer : currentQuestion.result.multipleAnswer.join(',') }}
+          正确答案:
+          {{
+            currentQuestion.detail.type === 1
+              ? currentQuestion.result.singleAnswer
+              : currentQuestion.result.multipleAnswer.join(",")
+          }}
         </div>
         <div class="info-box">
           <div class="item">
-            难度: {{{ 1: '简单', 2: '中等', 3: '困难' }[currentQuestion.result.difficulty]}}
+            难度:
+            {{
+              { 1: "简单", 2: "中等", 3: "困难" }[
+                currentQuestion.result.difficulty
+              ]
+            }}
           </div>
-          <div class="item">提交次数: {{ currentQuestion.result.submitNum }}</div>
-          <div class="item">正确次数: {{ currentQuestion.result.correctNum }}</div>
+          <div class="item">
+            提交次数: {{ currentQuestion.result.submitNum }}
+          </div>
+          <div class="item">
+            正确次数: {{ currentQuestion.result.correctNum }}
+          </div>
         </div>
         <p class="desc">{{ currentQuestion.result.answerAnalysis }}</p>
       </div>
@@ -184,7 +263,12 @@
         <div class="left" :class="{ hidden: questionList.length === 0 }">
           <!-- 图标 -->
           <div class="icon-box">
-            <span :class="{ actived: collectQuestions.includes(currentQuestion.id) }" @click="collect">
+            <span
+              :class="{
+                actived: collectQuestions.includes(currentQuestion.id),
+              }"
+              @click="collect"
+            >
               <i class="iconfont iconbtn-shoucang-nor"></i>收藏
             </span>
             <span @click="showPop = true">
@@ -193,24 +277,37 @@
           </div>
           <!-- 索引 -->
           <div class="index-box">
-            <span>{{ questionIndex + 1 }}</span>/{{ questionList.length }}题
+            <span>{{ questionIndex + 1 }}</span
+            >/{{ questionList.length }}题
           </div>
         </div>
         <div class="right">
           <!-- 提交按钮 -->
-          <van-button v-if="isStart && currentQuestion && !currentQuestion.result" @click="submit"
-            :class="{ disabled: isDisabled }" :disabled="isDisabled" type="danger">
+          <van-button
+            v-if="isStart && currentQuestion && !currentQuestion.result"
+            @click="submit"
+            :class="{ disabled: isDisabled }"
+            :disabled="isDisabled"
+            type="danger"
+          >
             提交
           </van-button>
           <!-- 下一题按钮 -->
-          <van-button v-else-if="currentQuestion && currentQuestion.result && !isFinish"
-            @click="nextQuestion" type="info">
+          <van-button
+            v-else-if="currentQuestion && currentQuestion.result && !isFinish"
+            @click="nextQuestion"
+            type="info"
+          >
             下一题
           </van-button>
           <!-- 结束按钮 -->
-          <van-button v-else-if="isFinish" @click="finishedAnswer" type="danger">结束</van-button>
+          <van-button v-else-if="isFinish" @click="finishedAnswer" type="danger"
+            >结束</van-button
+          >
           <!-- 开始答题按钮 -->
-          <van-button v-else @click="startQuestion" type="primary">开始</van-button>
+          <van-button v-else @click="startQuestion" type="primary"
+            >开始</van-button
+          >
         </div>
       </div>
     </div>
@@ -218,11 +315,18 @@
     <van-popup class="suggest-pop" v-model="showPop">
       <div class="pop-wrap">
         <h3>意见反馈</h3>
-        <van-field v-model="suggest" rows="5" type="textarea" placeholder="请输入你对此问题的反馈意见">
+        <van-field
+          v-model="suggest"
+          rows="5"
+          type="textarea"
+          placeholder="请输入你对此问题的反馈意见"
+        >
         </van-field>
         <!-- 底部按钮 -->
         <div class="button-wrap van-hairline--top">
-          <div class="cancel van-hairline--right" @click="showPop = false">取消</div>
+          <div class="cancel van-hairline--right" @click="showPop = false">
+            取消
+          </div>
           <div class="submit" :class="{ disabled: !suggest.length }">提交</div>
         </div>
       </div>
@@ -235,7 +339,8 @@
           <van-nav-bar :border="false">
             <template #right>
               <span>
-                <span class="num">{{ questionIndex }}</span>/{{ questionList.length }}题
+                <span class="num">{{ questionIndex }}</span
+                >/{{ questionList.length }}题
               </span>
             </template>
             <template #title>
@@ -247,11 +352,21 @@
         <!-- 主体区域 -->
         <div class="main-box">
           <ul>
-            <li class="item" v-for="(item, index) in questionList" :key="index"
-              :class="{ current: questionIndex === index,
-              error: questionList[index].result && !questionList[index].result.isRight,
-              right: questionList[index].result && questionList[index].result.isRight }"
-              @click="selectQuestion(index)">
+            <li
+              class="item"
+              v-for="(item, index) in questionList"
+              :key="index"
+              :class="{
+                current: questionIndex === index,
+                error:
+                  questionList[index].result &&
+                  !questionList[index].result.isRight,
+                right:
+                  questionList[index].result &&
+                  questionList[index].result.isRight,
+              }"
+              @click="selectQuestion(index)"
+            >
               {{ index + 1 }}
             </li>
           </ul>

@@ -9,7 +9,8 @@
             <i class="iconfont iconbtn-nav-back"></i>
           </template>
           <template #title>
-            <span class="custom-title">在招职位
+            <span class="custom-title"
+              >在招职位
               <span class="num">{{ total }}</span>
             </span>
           </template>
@@ -17,25 +18,47 @@
         <!-- 横向滚动的tags -->
         <div class="scroll-wrap">
           <div class="content">
-            <van-tag @click="type = undefined" :type="type === undefined ? 'primary' : ''" round>全部</van-tag>
+            <van-tag
+              @click="type = undefined"
+              :type="type === undefined ? 'primary' : ''"
+              round
+              >全部</van-tag
+            >
             <!-- 循环生成标签 -->
-            <van-tag @click="type = item.text" :type="type === item.text ? 'primary' : ''"
-              v-for="item in filter.types" :key="item.id" round>
+            <van-tag
+              @click="type = item.text"
+              :type="type === item.text ? 'primary' : ''"
+              v-for="item in filter.types"
+              :key="item.id"
+              round
+            >
               {{ item.text }}
             </van-tag>
           </div>
         </div>
         <!-- 下拉菜单 -->
         <van-dropdown-menu>
-          <van-dropdown-item v-model="city" :options="filter.cityFilters" class="city-drop">
+          <van-dropdown-item
+            v-model="city"
+            :options="filter.cityFilters"
+            class="city-drop"
+          >
             <!-- 标题插槽 -->
             <template #title>城市</template>
           </van-dropdown-item>
-          <van-dropdown-item v-model="experience" :options="filter.experienceFilters" class="experience-drop">
+          <van-dropdown-item
+            v-model="experience"
+            :options="filter.experienceFilters"
+            class="experience-drop"
+          >
             <!-- 标题插槽 -->
             <template #title>经验</template>
           </van-dropdown-item>
-          <van-dropdown-item class="order-drop" v-model="salary" :options="filter.salaryFilters">
+          <van-dropdown-item
+            class="order-drop"
+            v-model="salary"
+            :options="filter.salaryFilters"
+          >
             <!-- 标题插槽 -->
             <template #title>待遇</template>
           </van-dropdown-item>
@@ -44,8 +67,17 @@
     </van-sticky>
     <!-- 底部列表区域 -->
     <div class="main-box">
-      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-        <position-item v-for="item in list" :key="item.id" :item="item"></position-item>
+      <van-list
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
+        <position-item
+          v-for="item in list"
+          :key="item.id"
+          :item="item"
+        ></position-item>
       </van-list>
     </div>
   </div>
@@ -151,11 +183,11 @@ export default {
       })
       // 处理数据格式 - 经验
       this.filter.experienceFilters = this.filter.experienceFilters.map(v => {
-          return {
-            value: v,
-            text: v
-          }
+        return {
+          value: v,
+          text: v
         }
+      }
       )
       // 处理数据格式 - 待遇
       this.filter.salaryFilters = this.filter.salaryFilters.map(v => {

@@ -10,11 +10,22 @@
     <div class="main">
       <van-form validate-first @failed="onFailed">
         <!-- 通过 pattern 进行正则校验 -->
-        <van-field v-model="value1" name="pattern" placeholder="请输入面经内容"
-          :rules="[{ pattern, message: '请输入正确内容' }]">
+        <van-field
+          v-model="value1"
+          name="pattern"
+          placeholder="请输入面经内容"
+          :rules="[{ pattern, message: '请输入正确内容' }]"
+        >
         </van-field>
-        <van-field v-model="value2" name="pattern" placeholder="请输入面经内容" type="textarea"
-          rows="10" autosize :rules="[{ pattern, message: '请输入正确内容' }]">
+        <van-field
+          v-model="value2"
+          name="pattern"
+          placeholder="请输入面经内容"
+          type="textarea"
+          rows="10"
+          autosize
+          :rules="[{ pattern, message: '请输入正确内容' }]"
+        >
         </van-field>
       </van-form>
       <van-uploader upload-icon="plus" :after-read="afterRead"></van-uploader>

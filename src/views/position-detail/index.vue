@@ -16,14 +16,12 @@
       </van-sticky>
       <!-- 信息 -->
       <h2 class="message">
-        <span class="name">{{ detail.name }}</span> 
+        <span class="name">{{ detail.name }}</span>
         <span class="salary">{{ detail.salary }}</span>
       </h2>
       <!-- 职位 -->
       <div class="job-tags">
-        <span> 
-          <i class="iconfont iconicon-city"></i>{{ detail.city }}
-        </span>
+        <span> <i class="iconfont iconicon-city"></i>{{ detail.city }} </span>
         <span>
           <i class="iconfont iconicon-nian"></i>{{ detail.experience }}
         </span>
@@ -32,16 +30,21 @@
         </span>
       </div>
       <!-- 工作时间 -->
-      <div class="time-tags">{{ detail.feature && detail.feature.join('·') }}</div>
+      <div class="time-tags">
+        {{ detail.feature && detail.feature.join("·") }}
+      </div>
     </div>
     <!-- 内容盒子 -->
     <div class="main-box van-hairline--bottom">
       <h3>职位描述</h3>
       <div class="responsibility-box" v-html="detail.responsibility"></div>
       <!-- 公司盒子 -->
-      <div class="company-box van-hairline--top" @click="$router.push('/company-detail/' + detail.company.id)">
+      <div
+        class="company-box van-hairline--top"
+        @click="$router.push('/company-detail/' + detail.company.id)"
+      >
         <div class="logo-wrap van-hairline--surround">
-          <img :src="detail.company.logo" alt="">
+          <img :src="detail.company.logo" alt="" />
         </div>
         <div class="info-box">
           <div class="title">{{ detail.company.name }}</div>
@@ -56,10 +59,17 @@
     </div>
     <!-- 底部盒子 -->
     <div class="bottom-box">
-      <van-button type="danger" @click="$router.push('/question')">去刷题</van-button>
+      <van-button type="danger" @click="$router.push('/question')"
+        >去刷题</van-button
+      >
     </div>
     <!-- 分享界面 -->
-    <van-share-sheet v-model="showShare" title="立即分享给好友" :options="options" @select="onSelect"></van-share-sheet>
+    <van-share-sheet
+      v-model="showShare"
+      title="立即分享给好友"
+      :options="options"
+      @select="onSelect"
+    ></van-share-sheet>
   </div>
 </template>
 
