@@ -4,7 +4,7 @@
     <div class="top-box">
       <van-nav-bar title="面试技巧" :border="false" @click-left="onClickLeft">
         <template #left>
-          <i class="iconfont iconbtn-nav-back"></i>
+          <i class="iconfont button-nav-back"></i>
         </template>
       </van-nav-bar>
       <div class="search-box" @click="$router.push('/search')">
@@ -61,10 +61,9 @@ export default {
         limit: this.limit,
         start: this.start
       })
-      const baseURL = 'https://autumnfish.cn/heimamm_server/'
       listRes.data.list.forEach(v => {
         if (v.cover) {
-          v.cover += baseURL
+          v.cover += 'https://autumnfish.cn/heimamm_server/'
         }
       })
       this.list.push(...listRes.data.list)
@@ -91,7 +90,7 @@ export default {
     .van-nav-bar__left {
       padding-left: 5px;
     }
-    .iconbtn-nav-back {
+    .button-nav-back {
       font-size: 44px;
     }
     .search-box {

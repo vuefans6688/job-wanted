@@ -139,19 +139,18 @@ export default {
       // 处理总分
       data.score = parseFloat((data.positionScore + data.interviewerScore + data.interviewScore) / 3)
       // 头像
-      const baseURL = 'https://autumnfish.cn/heimamm_server/'
-      data.user.avatar += baseURL
+      data.user.avatar += 'https://autumnfish.cn/heimamm_server/'
       // 关闭弹框
       this.$emit('input', false)
       // 把新增的数据派发给父组件
       this.$emit('on-added', data)
     },
     // 点击选择职位
-    onConfirm (item) {
+    onConfirm (items) {
       // 保存职位名
-      this.position = item.name
+      this.position = items.name
       // 保存职位id
-      this.positionId = item.id
+      this.positionId = items.id
       // 关闭弹框
       this.showPositionPicker = false
     }

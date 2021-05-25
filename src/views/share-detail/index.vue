@@ -3,7 +3,7 @@
     <!-- 导航栏 -->
     <van-nav-bar @click-left="$router.go(-1)">
       <template #left>
-        <i class="iconfont iconbtn-nav-back"></i>
+        <i class="iconfont button-nav-back"></i>
       </template>
     </van-nav-bar>
     <!-- 顶部 -->
@@ -144,9 +144,8 @@ export default {
       this.$toast.loading()
       const detailRes = await articlesShareDetail(this.id)
       // 处理头像
-      const baseURL = 'https://autumnfish.cn/heimamm_server/'
       if (detailRes.data.author.avatar) {
-        detailRes.data.author.avatar += baseURL
+        detailRes.data.author.avatar += 'https://autumnfish.cn/heimamm_server/'
       }
       this.detail = detailRes.data
       this.$toast.clear()
@@ -160,10 +159,9 @@ export default {
         limit: this.limit,
         start: this.start
       })
-      const baseURL = 'https://autumnfish.cn/heimamm_server/'
       articleRes.data.list.forEach(v => {
         if (v.author.avatar) {
-          v.author.avatar += baseURL
+          v.author.avatar += 'https://autumnfish.cn/heimamm_server/'
         }
       })
       // 保存数据
@@ -195,7 +193,6 @@ export default {
       }
       // 调用接口
       const publishRes = await publishComment(data)
-      const baseURL = 'https://autumnfish.cn/heimamm_server/'
       // 添加到数组后面
       // 根据不同的情境添加到对应的地方
       if (this.parentComment) {
@@ -203,7 +200,7 @@ export default {
         this.parentComment.children_comments.push(publishRes.data)
       } else {
         // 处理头像
-        publishRes.data.author.avatar += baseURL
+        publishRes.data.author.avatar += 'https://autumnfish.cn/heimamm_server/'
         this.list.unshift(publishRes.data)
       }
       // 隐藏
@@ -266,7 +263,7 @@ export default {
   .van-nav-bar__left {
     padding-left: 5px;
   }
-  .iconbtn-nav-back {
+  .button-nav-back {
     font-size: 44px;
   }
   .top-box {

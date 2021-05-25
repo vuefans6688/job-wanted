@@ -171,7 +171,7 @@ export default {
   },
   methods: {
     // 顶部搜索
-    onSearch () {
+    onSearch (value) {
       this.start = 0
       this.list = []
       this.finished = false
@@ -191,11 +191,10 @@ export default {
         q: this.keyword,
         scoreRange: this.scoreRange
       })
-      const baseURL = 'https://autumnfish.cn/heimamm_server/'
       // 保存列表数据
       this.list.push(
         ...listRes.data.list.map(v => {
-          v.logo += baseURL
+          v.logo += 'https://autumnfish.cn/heimamm_server/'
           return v
         })
       )

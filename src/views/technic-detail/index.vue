@@ -3,7 +3,7 @@
     <!-- 顶部 -->
     <van-nav-bar>
       <template #left>
-        <i class="iconfont iconbtn-nav-back" @click="$router.go(-1)"></i>
+        <i class="iconfont button-nav-back" @click="$router.go(-1)"></i>
       </template>
     </van-nav-bar>
     <!-- 主体内容区域 -->
@@ -52,7 +52,7 @@ export default {
   .van-nav-bar__left {
     padding-left: 5px;
   }
-  .iconbtn-nav-back {
+  .button-nav-back {
     font-size: 44px;
   }
   .main-box {

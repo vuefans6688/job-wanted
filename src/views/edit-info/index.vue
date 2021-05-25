@@ -4,7 +4,7 @@
     <div class="top-box">
       <van-nav-bar :border="false" @click-left="$router.push('/user-info')">
         <template #left>
-          <i class="iconfont iconbtn-nav-back"></i>
+          <i class="iconfont button-nav-back"></i>
         </template>
         <template #right>
           <span v-if="isEdit" @click="submit">保存</span>
@@ -158,7 +158,7 @@ export default {
     .van-nav-bar__left {
       padding-left: 5px;
     }
-    .iconbtn-nav-back {
+    .button-nav-back {
       font-size: 44px;
     }
     .van-nav-bar__right {

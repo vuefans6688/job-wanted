@@ -6,7 +6,7 @@
       <!-- 导航栏 -->
       <van-nav-bar @click-left="$router.push('/company?isScroll=true')">
         <template #left>
-          <i class="iconfont iconbtn-nav-back"></i>
+          <i class="iconfont button-nav-back"></i>
         </template>
       </van-nav-bar>
       <!-- 信息区域 -->
@@ -252,10 +252,9 @@ export default {
         // 累加起始索引
         this.start += this.limit
         // 处理头像数据
-        const baseURL = 'https://autumnfish.cn/heimamm_server/'
         res.data.list.forEach(v => {
           // 处理头像
-          v.user.avatar += baseURL
+          v.user.avatar += 'https://autumnfish.cn/heimamm_server/'
           // 处理打分数据
           v.score = (v.positionScore + v.interviewScore + v.interviewerScore) / 3
         })
@@ -278,7 +277,7 @@ export default {
       // 处理logo
       res.data.logo += baseURL
       // 处理轮播图
-      res.data.sliders = res.data.sliders.map(v => baseURL + v)
+      res.data.sliders = res.data.sliders.map(value => baseURL + value)
       // 赋值
       this.detail = res.data
       // 设置评分数据
@@ -342,7 +341,7 @@ export default {
     .van-nav-bar__left {
       padding-left: 5px;
     }
-    .iconbtn-nav-back {
+    .button-nav-back {
       font-size: 44px;
       color: white;
     }

@@ -4,7 +4,7 @@
     <div class="top-box">
       <van-nav-bar :title="title" :border="false" @click-left="onBack">
         <template #left>
-          <i class="iconfont iconbtn-nav-back"></i>
+          <i class="iconfont button-nav-back"></i>
         </template>
       </van-nav-bar>
       <van-search
@@ -227,7 +227,7 @@ export default {
     .van-nav-bar__left {
       padding-left: 5px;
     }
-    .iconbtn-nav-back {
+    .button-nav-back {
       font-size: 44px;
     }
     .van-search__content {

@@ -3,7 +3,7 @@
     <!-- 回退按钮 -->
     <van-nav-bar title="你好，欢迎登录" @click-left="onBack">
       <template #left>
-        <i class="iconfont iconbtn-nav-back"></i>
+        <i class="iconfont button-nav-back"></i>
       </template>
     </van-nav-bar>
     <!-- 表单 -->
@@ -83,12 +83,12 @@ export default {
     ...mapMutations(['SET_USER_INFO']),
     // 获取验证码
     onCaptcha () {
-      // 如果用户在表单中未输入内容而又点击了验证码按钮，就会出现提示用户的信息
+      // 防止用户重复点击按钮
       if (this.delay > 0) {
         return
       }
       this.$toast.loading()
-      // 表单校验
+      // 校验用户手机号
       this.$refs['login-form'].validate('mobile').then(() => {
         getCode({ mobile: this.user.mobile }).then(res => {
           this.$toast.success(res.data)
@@ -112,7 +112,7 @@ export default {
         this.$toast({
           // 提示消息
           message: error.errors[0].message,
-          // 以防手机键盘太高看不见操作面板  
+          // 以防手机键盘太高，看不见操作面板  
           position: 'top'
         })
       }
@@ -125,8 +125,7 @@ export default {
         // 保存用户token
         setLocal(res.data.jwt)
         // 图片地址特殊处理
-        const baseURL = 'https://autumnfish.cn/heimamm_server/'
-        res.data.user.avatar += baseURL
+        res.data.user.avatar += 'https://autumnfish.cn/heimamm_server/'
         // 保存用户信息
         this.SET_USER_INFO(res.data.user)
         // 获取返回的地址
@@ -147,7 +146,7 @@ export default {
       const { _redirect } = this.$route.query
       // 如果有就返回
       if (_redirect) {
-        // false
+        // 是否存在返回的路径
         const isExist = backPaths.some(path => _redirect.indexOf(path) === 0)
         if (!isExist) {
           return this.$router.push(_redirect)
@@ -168,7 +167,7 @@ export default {
     .van-nav-bar__left {
       padding-left: 5px;
     }
-    .iconbtn-nav-back {
+    .button-nav-back {
       font-size: 40px;
     }
   }

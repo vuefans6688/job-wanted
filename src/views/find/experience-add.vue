@@ -3,7 +3,7 @@
     <!-- 导航栏 -->
     <van-nav-bar title="面经分享" @click-left="$router.push('/interview')">
       <template #left>
-        <i class="iconfont iconbtn-nav-back"></i>
+        <i class="iconfont button-nav-back"></i>
       </template>
     </van-nav-bar>
     <!-- 输入区域 -->
@@ -61,7 +61,7 @@ export default {
   .van-nav-bar__left {
     padding-left: 5px;
   }
-  .iconbtn-nav-back {
+  .button-nav-back {
     font-size: 44px;
   }
   .main {
