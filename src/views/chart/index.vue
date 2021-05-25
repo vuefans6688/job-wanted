@@ -35,7 +35,7 @@
         <van-dropdown-item
           :title="selectPosition"
           v-model="selectPosition"
-          ref="positionDrop"
+          ref="position-drop"
         >
           <div class="list">
             <van-search
@@ -63,7 +63,7 @@
           <span>区间</span>
           <span>占比</span>
         </div>
-        <canvas id="salary"> </canvas>
+        <canvas id="salary"></canvas>
         <!-- 底部 -->
         <div class="bottom-info">
           近1年 {{ percentSample }} 份样本 / 可信度：高
@@ -72,13 +72,19 @@
       <!-- 工作经验 -->
       <div class="experience-box">
         <h2>工作经验</h2>
-        <div class="tooltip"><span> </span> <span> </span></div>
+        <div class="tooltip">
+          <span></span>
+          <span></span>
+        </div>
         <canvas id="experience"></canvas>
       </div>
       <!-- 平均工资 -->
       <div class="average-box">
         <h2>历年平均工资变化趋势</h2>
-        <div class="tooltip"><span> </span> <span> </span></div>
+        <div class="tooltip">
+          <span></span>
+          <span></span>
+        </div>
         <canvas id="average"></canvas>
       </div>
       <!-- 就业形势 -->
@@ -144,7 +150,6 @@ export default {
       return tempCity
     },
     positions () {
-      // 临时城市
       // 遍历城市数据
       return this.positionData.filter(v => v.includes(this.positionQuery))
     }
@@ -167,7 +172,7 @@ export default {
       // 保存职位
       this.selectPosition = position
       // 关闭遮罩层
-      this.$refs.positionDrop.toggle()
+      this.$refs['position-drop'].toggle()
     },
     // 选中城市
     async selectedCity (cityData) {

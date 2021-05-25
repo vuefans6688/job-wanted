@@ -4,7 +4,7 @@
     <div class="top-box">
       <!-- 下拉菜单 -->
       <van-dropdown-menu class="question-dropdown-menu">
-        <van-dropdown-item class="city-drop" ref="cityDrop">
+        <van-dropdown-item class="city-drop" ref="city-drop">
           <template #title>
             <span>面试宝典 {{ selectedCity }}</span>
           </template>
@@ -133,7 +133,7 @@ export default {
       // 选中的城市
       this.selectedCity = city
       // 切换下拉面板
-      this.$refs.cityDrop.toggle()
+      this.$refs['city-drop'].toggle()
       // 设置类型的数组
       this.types = this.filter.cityPositions[city]
       // 默认选中全部

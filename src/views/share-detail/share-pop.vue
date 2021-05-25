@@ -1,6 +1,6 @@
 <template>
   <van-popup :value="value" @input="$emit('input', !value)">
-    <div ref="shareBox" class="pop-content">
+    <div ref="share-box" class="pop-content">
       <div class="share-box" v-if="!shareImgUrl">
         <div class="content-box" ref="contentBox">
           <div class="text">长按图片下载并分享</div>
@@ -50,7 +50,7 @@ export default {
     value () {
       if (this.value) {
         this.$nextTick(() => {
-          html2canvas(this.$refs.shareBox, {
+          html2canvas(this.$refs['share-box'], {
             useCORS: true
           }).then(canvas => {
             this.shareImgUrl = canvas.toDataURL()
