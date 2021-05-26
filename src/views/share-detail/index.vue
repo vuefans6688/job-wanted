@@ -50,7 +50,7 @@
         @click="collect"
       >
         <i
-          class="iconfont iconbtn-shoucang-nor"
+          class="iconfont shou-cang-nor"
           :class="{ actived: collectArticles.includes(id) }"
         ></i>
         <span>{{ detail.collect }}</span>
@@ -61,13 +61,13 @@
         @click="star"
       >
         <i
-          class="iconfont iconbtn-dianzan-small-nor"
+          class="iconfont dian-zan-small-nor"
           :class="{ actived: starArticles.includes(id) }"
         ></i>
         <span>{{ detail.star }}</span>
       </div>
       <div class="share" @click="shareArticle">
-        <i class="iconfont iconbtn-share"></i>
+        <i class="iconfont share"></i>
         <span>{{ detail.share || 0 }}</span>
       </div>
     </div>

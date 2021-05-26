@@ -6,7 +6,7 @@
       <div class="title">市场数据</div>
       <div class="arrow-box" @click="$router.push('/chart')">
         <span>查看更多</span>
-        <i class="iconfont iconicon-more"></i>
+        <i class="iconfont more"></i>
       </div>
     </div>
     <!-- 标签区域 -->
@@ -28,8 +28,8 @@
         <div class="arrow-box">
           <i
             :class="{
-              'iconicon-shangsheng': item.percent > 0,
-              'iconicon-xiajiang': item.percent < 0,
+              'shang-sheng': item.percent > 0,
+              'xia-jiang': item.percent < 0,
             }"
             class="iconfont"
           ></i>
@@ -43,7 +43,7 @@
     <div class="more" @click="toggleMore">
       <span>{{ list === chartData.yearSalary ? "收起显示" : "展开更多" }}</span>
       <i
-        class="iconfont iconicon-zhankai"
+        class="iconfont zhan-kai"
         :class="{ rotate: list === chartData.yearSalary }"
       ></i>
     </div>
@@ -136,10 +136,10 @@ export default {
         margin-right: 8px;
         width: 16px;
       }
-      .iconicon-xiajiang {
+      .xia-jiang {
         color: #fe6d67;
       }
-      .iconicon-shangsheng {
+      .shang-sheng {
         color: #60d183;
       }
     }

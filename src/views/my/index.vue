@@ -45,10 +45,10 @@
       >
         <!-- 使用 right-icon 插槽来自定义右侧图标 -->
         <template #icon>
-          <i class="iconfont iconicon-mine-gangwei"></i>
+          <i class="iconfont mine-gang-wei"></i>
         </template>
         <template #right-icon>
-          <i class="iconfont iconicon-more"></i>
+          <i class="iconfont more"></i>
         </template>
       </van-cell>
       <!-- 中间的面经数据 -->
@@ -88,10 +88,10 @@
         >
           <!-- 使用 right-icon 插槽来自定义右侧图标 -->
           <template #icon>
-            <i class="iconfont iconicon-mine-mianjing"></i>
+            <i class="iconfont mine-mian-jing"></i>
           </template>
           <template #right-icon>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <van-cell
@@ -103,10 +103,10 @@
         >
           <!-- 使用 right-icon 插槽来自定义右侧图标 -->
           <template #icon>
-            <i class="iconfont iconicon-mine-xiaoxi"></i>
+            <i class="iconfont mine-xiao-xi"></i>
           </template>
           <template #right-icon>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <van-cell
@@ -117,19 +117,19 @@
         >
           <!-- 使用 right-icon 插槽来自定义右侧图标 -->
           <template #icon>
-            <i class="iconfont iconicon-mine-tikushoucang"></i>
+            <i class="iconfont mine-ti-ku-shou-cang"></i>
           </template>
           <template #right-icon>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <van-cell title="收藏的企业" value="0" :border="false" class="my-cell">
           <!-- 使用 right-icon 插槽来自定义右侧图标 -->
           <template #icon>
-            <i class="iconfont iconicon-mine-qiyeshoucang"></i>
+            <i class="iconfont mine-qi-ye-shou-cang"></i>
           </template>
           <template #right-icon>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <van-cell
@@ -140,10 +140,10 @@
         >
           <!-- 使用 right-icon 插槽来自定义右侧图标 -->
           <template #icon>
-            <i class="iconfont iconicon-mine-cuoti"></i>
+            <i class="iconfont mine-cuo-ti"></i>
           </template>
           <template #right-icon>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
       </van-cell-group>

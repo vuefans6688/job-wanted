@@ -16,7 +16,7 @@
         <van-cell class="my-cell" title="您提交的反馈我们已经收到">
           <template #right-icon>
             <div class="circle"></div>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <template #right>
@@ -27,7 +27,7 @@
         <van-cell class="my-cell" title="您提交的反馈我们已经收到">
           <template #right-icon>
             <div class="circle"></div>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <template #right>
@@ -38,7 +38,7 @@
         <van-cell class="my-cell" title="您提交的反馈我们已经收到">
           <template #right-icon>
             <div class="circle"></div>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <template #right>
@@ -49,7 +49,7 @@
         <van-cell class="my-cell" title="您提交的反馈我们已经收到">
           <template #right-icon>
             <div class="circle"></div>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <template #right>

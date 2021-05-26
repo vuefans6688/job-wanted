@@ -99,8 +99,8 @@
               <span class="content">{{
                 currentQuestion.detail.option[0]
               }}</span>
-              <i class="iconfont iconicon-zhengque"></i>
-              <i class="iconfont iconicon-cuowu"></i>
+              <i class="iconfont zheng-que"></i>
+              <i class="iconfont cuo-wu"></i>
             </template>
           </van-radio>
           <van-radio name="B" :class="setClass('B')">
@@ -109,8 +109,8 @@
               <span class="content">{{
                 currentQuestion.detail.option[1]
               }}</span>
-              <i class="iconfont iconicon-zhengque"></i>
-              <i class="iconfont iconicon-cuowu"></i>
+              <i class="iconfont zheng-que"></i>
+              <i class="iconfont cuo-wu"></i>
             </template>
           </van-radio>
           <van-radio name="C" :class="setClass('C')">
@@ -119,8 +119,8 @@
               <span class="content">{{
                 currentQuestion.detail.option[2]
               }}</span>
-              <i class="iconfont iconicon-zhengque"></i>
-              <i class="iconfont iconicon-cuowu"></i>
+              <i class="iconfont zheng-que"></i>
+              <i class="iconfont cuo-wu"></i>
             </template>
           </van-radio>
           <van-radio name="D" :class="setClass('D')">
@@ -129,8 +129,8 @@
               <span class="content">{{
                 currentQuestion.detail.option[3]
               }}</span>
-              <i class="iconfont iconicon-zhengque"></i>
-              <i class="iconfont iconicon-cuowu"></i>
+              <i class="iconfont zheng-que"></i>
+              <i class="iconfont cuo-wu"></i>
             </template>
           </van-radio>
         </van-radio-group>
@@ -148,8 +148,8 @@
               <span class="content">{{
                 currentQuestion.detail.option[0]
               }}</span>
-              <i class="iconfont iconicon-zhengque"></i>
-              <i class="iconfont iconicon-cuowu"></i>
+              <i class="iconfont zheng-que"></i>
+              <i class="iconfont cuo-wu"></i>
             </template>
           </van-checkbox>
           <van-checkbox name="B" :class="setClass('B')">
@@ -158,8 +158,8 @@
               <span class="content">{{
                 currentQuestion.detail.option[1]
               }}</span>
-              <i class="iconfont iconicon-zhengque"></i>
-              <i class="iconfont iconicon-cuowu"></i>
+              <i class="iconfont zheng-que"></i>
+              <i class="iconfont cuo-wu"></i>
             </template>
           </van-checkbox>
           <van-checkbox name="C" :class="setClass('C')">
@@ -168,8 +168,8 @@
               <span class="content">{{
                 currentQuestion.detail.option[2]
               }}</span>
-              <i class="iconfont iconicon-zhengque"></i>
-              <i class="iconfont iconicon-cuowu"></i>
+              <i class="iconfont zheng-que"></i>
+              <i class="iconfont cuo-wu"></i>
             </template>
           </van-checkbox>
           <van-checkbox name="D" :class="setClass('D')">
@@ -178,8 +178,8 @@
               <span class="content">{{
                 currentQuestion.detail.option[3]
               }}</span>
-              <i class="iconfont iconicon-zhengque"></i>
-              <i class="iconfont iconicon-cuowu"></i>
+              <i class="iconfont zheng-que"></i>
+              <i class="iconfont cuo-wu"></i>
             </template>
           </van-checkbox>
         </van-checkbox-group>
@@ -188,7 +188,7 @@
           <div class="audio-box">
             <!-- 自定义的音乐播放器 -->
             <div class="audio">
-              <i @click="togglePlay" class="iconfont iconsanjiaoxing2"></i>
+              <i @click="togglePlay" class="iconfont san-jiao-xing-2"></i>
               <div class="process-wrap">
                 <div class="process">
                   <div ref="step" class="step"></div>
@@ -199,7 +199,7 @@
               <audio ref="audio" src="@/assets/music.mp3"></audio>
             </div>
             <!-- 删除按钮 -->
-            <i class="iconfont iconbtn-delete-nor"></i>
+            <i class="iconfont button-delete-nor"></i>
           </div>
         </div>
       </div>
@@ -223,7 +223,7 @@
           />
           <!-- 删除按钮 -->
           <div v-if="isRecord" class="del-btn">
-            <i class="iconfont iconbtn-delete-nor"></i>
+            <i class="iconfont button-delete-nor"></i>
           </div>
         </div>
       </div>
@@ -269,10 +269,10 @@
               }"
               @click="collect"
             >
-              <i class="iconfont iconbtn-shoucang-nor"></i>收藏
+              <i class="iconfont shou-cang-nor"></i>收藏
             </span>
             <span @click="showPop = true">
-              <i class="iconfont iconbtn-shuati-fankui"></i>反馈
+              <i class="iconfont shua-ti-fan-kui"></i>反馈
             </span>
           </div>
           <!-- 索引 -->
@@ -826,7 +826,7 @@ export default {
       .van-checkbox.error {
         background: #ffefea;
         border-color: transparent;
-        .iconicon-cuowu {
+        .cuo-wu {
           display: flex;
           align-items: center;
           color: #ec5851;
@@ -840,7 +840,7 @@ export default {
         .content {
           color: #1dc779;
         }
-        .iconicon-zhengque {
+        .zheng-que {
           display: flex;
           align-items: center;
           color: #1dc779;
@@ -1017,7 +1017,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      .iconbtn-delete-nor {
+      .button-delete-nor {
         font-size: 30px;
         color: white;
       }

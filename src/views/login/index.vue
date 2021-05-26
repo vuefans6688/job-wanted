@@ -22,7 +22,7 @@
         placeholder="请输入手机号"
       >
         <template #left-icon>
-          <i class="iconfont iconbianzu1"></i>
+          <i class="iconfont bian-zu-1"></i>
         </template>
       </van-field>
       <!-- 验证码 -->
@@ -35,7 +35,7 @@
         placeholder="请输入验证码"
       >
         <template #left-icon>
-          <i class="iconfont iconyanzhengma"></i>
+          <i class="iconfont yan-zheng-ma"></i>
         </template>
         <template #button>
           <van-button @click.prevent="onCaptcha" type="primary" size="mini">{{

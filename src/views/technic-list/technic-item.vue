@@ -10,12 +10,12 @@
       <div class="info">
         <div class="time">{{ item.created_at | formatTime }}</div>
         <div class="see">
-          <i class="iconfont iconicon-liulanliang"></i>
+          <i class="iconfont liu-lan-liang"></i>
           <span>{{ item.read }}</span>
         </div>
         <div class="zan">
           <i
-            class="iconfont iconbtn-dianzan-small-nor"
+            class="iconfont dian-zan-small-nor"
             :class="{ actived: isActive }"
             @click="star"
           ></i>
@@ -111,7 +111,7 @@ export default {
     }
   }
   // 高亮效果
-  .iconbtn-dianzan-small-nor.actived {
+  .dian-zan-small-nor.actived {
     color: #e40137;
   }
 }

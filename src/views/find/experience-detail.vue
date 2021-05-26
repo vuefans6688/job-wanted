@@ -78,7 +78,7 @@
           </div>
           <div class="zan-box">
             <span>68</span>
-            <i class="iconfont iconbtn-dianzan-small-nor"></i>
+            <i class="iconfont dian-zan-small-nor"></i>
           </div>
         </div>
         <!-- 评论内容 -->
@@ -110,7 +110,7 @@
           </div>
           <div class="zan-box">
             <span>68</span>
-            <i class="iconfont iconbtn-dianzan-small-nor"></i>
+            <i class="iconfont dian-zan-small-nor"></i>
           </div>
         </div>
         <!-- 评论内容 -->

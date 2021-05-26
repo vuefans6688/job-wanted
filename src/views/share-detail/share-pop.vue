@@ -2,7 +2,7 @@
   <van-popup :value="value" @input="$emit('input', !value)">
     <div ref="share-box" class="pop-content">
       <div class="share-box" v-if="!shareImgUrl">
-        <div class="content-box" ref="contentBox">
+        <div class="content-box" ref="content-box">
           <div class="text">长按图片下载并分享</div>
           <div class="share-content-box">
             <div class="title">{{ detail.title }}</div>

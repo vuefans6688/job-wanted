@@ -10,7 +10,7 @@
             <div class="title">面试技巧</div>
             <div class="arrow-box" @click="$router.push('/technic-list')">
               <span>查看更多</span>
-              <i class="iconfont iconicon-more"></i>
+              <i class="iconfont more"></i>
             </div>
           </div>
           <!-- 列表区域 -->
@@ -34,7 +34,7 @@
             <div class="title">面经分享</div>
             <div class="arrow-box" @click="$router.push('/share-list')">
               <span>查看更多</span>
-              <i class="iconfont iconicon-more"></i>
+              <i class="iconfont more"></i>
             </div>
           </div>
           <!-- 列表 -->

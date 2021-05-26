@@ -24,13 +24,11 @@
       <!-- 工作时间 -->
       <div class="time-box">
         <span>
-          <i class="iconfont iconicon-gongsi-time"></i>{{ detail.workTime }}
+          <i class="iconfont gong-si-time"></i>{{ detail.workTime }}
         </span>
+        <span> <i class="iconfont gong-si-sx"></i>{{ detail.restDay }} </span>
         <span>
-          <i class="iconfont iconicon-gongsi-sx"></i>{{ detail.restDay }}
-        </span>
-        <span>
-          <i class="iconfont iconicon-gongsi-jiaban"></i>{{ detail.overtime }}
+          <i class="iconfont gong-si-jia-ban"></i>{{ detail.overtime }}
         </span>
       </div>
       <!-- 额外福利 -->
@@ -53,10 +51,10 @@
         </div>
         <div class="right">
           <div class="more" @click="allAddress">
-            全部地址 <i class="iconfont iconicon-more"></i>
+            全部地址 <i class="iconfont more"></i>
           </div>
           <div class="nav-btn" @click="navAddress">
-            <i class="iconfont iconicon-gongsi-daohang"></i>导航
+            <i class="iconfont gong-si-dao-hang"></i>导航
           </div>
         </div>
       </div>
@@ -67,7 +65,7 @@
           {{ detail.desc }}
         </p>
         <span @click="showMore = true" v-if="!showMore">
-          展开更多 <i class="iconfont iconicon-zhankai"></i>
+          展开更多 <i class="iconfont zhan-kai"></i>
         </span>
       </div>
       <!-- 照片 -->

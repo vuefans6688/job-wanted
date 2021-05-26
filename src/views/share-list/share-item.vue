@@ -15,14 +15,14 @@
       </div>
       <div class="time">{{ item.created_at | formatTime }}</div>
       <div class="mes">
-        <i class="iconfont iconicon-pinglunliang"></i>
+        <i class="iconfont ping-lun-liang"></i>
         <span>{{ item.article_comments }}</span>
       </div>
       <div class="zan">
         <i
           :class="{ actived: starArticles.includes(item.id) }"
           @click="star"
-          class="iconfont iconbtn-dianzan-small-nor"
+          class="iconfont dian-zan-small-nor"
         ></i>
         <span>{{ item.star }}</span>
       </div>

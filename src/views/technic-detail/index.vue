@@ -15,11 +15,11 @@
           <div class="info">
             <div class="time">{{ detail.created_at | formatTime }}</div>
             <div class="see">
-              <i class="iconfont iconicon-liulanliang"></i>
+              <i class="iconfont liu-lan-liang"></i>
               <span>{{ detail.read }}</span>
             </div>
             <div class="zan">
-              <i class="iconfont iconbtn-dianzan-small-nor"></i>
+              <i class="iconfont dian-zan-small-nor"></i>
               <span>{{ detail.star }}</span>
             </div>
           </div>

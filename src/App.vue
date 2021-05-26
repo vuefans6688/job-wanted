@@ -14,25 +14,25 @@
       <van-tabbar-item name="company" to="/company">
         <span>公司</span>
         <template #icon>
-          <i class="iconfont iconicon-footbar-gs-nor"></i>
+          <i class="iconfont foot-bar-gs-nor"></i>
         </template>
       </van-tabbar-item>
       <van-tabbar-item name="question" to="/question" icon="search">
         <span>刷题</span>
         <template #icon>
-          <i class="iconfont iconicon-footbar-st-nor"></i>
+          <i class="iconfont foot-bar-st-nor"></i>
         </template>
       </van-tabbar-item>
       <van-tabbar-item name="find" to="/find" icon="friends-o">
         <span>发现</span>
         <template #icon>
-          <i class="iconfont iconicon-footbar-fx-nor"></i>
+          <i class="iconfont foot-bar-fx-nor"></i>
         </template>
       </van-tabbar-item>
       <van-tabbar-item name="my" to="/my" icon="setting-o">
         <span>我的</span>
         <template #icon>
-          <i class="iconfont iconicon-footbar-wode-nor"></i>
+          <i class="iconfont foot-bar-wode-nor"></i>
         </template>
       </van-tabbar-item>
     </van-tabbar>

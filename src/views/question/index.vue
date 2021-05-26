@@ -46,14 +46,14 @@
         <i class="iconfont iconicon-mine-cuoti"></i>常错题库
       </div>
       <div class="item collect">
-        <i class="iconfont iconicon-mine-tikushoucang"></i>收藏题库
+        <i class="iconfont mine-ti-ku-shou-cang"></i>收藏题库
       </div>
       <!-- 点击去企业 -->
       <div class="item company" @click="$router.push('/company')">
-        <i class="iconfont iconicon-mine-qiyeshoucang"></i>企业题库
+        <i class="iconfont mine-qi-ye-shou-cang"></i>企业题库
       </div>
       <div class="item answer">
-        <i class="iconfont iconicon-mine-mianjing"></i>已答题库
+        <i class="iconfont mine-mian-jing"></i>已答题库
       </div>
       <!-- 环形进度条 -->
       <van-circle

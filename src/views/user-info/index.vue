@@ -16,7 +16,7 @@
       >
         <!-- 使用 right-icon 插槽来自定义右侧图标 -->
         <template #right-icon>
-          <i class="iconfont iconicon-more"></i>
+          <i class="iconfont more"></i>
         </template>
         <template>
           <img :src="userInfo && userInfo.avatar" alt="" class="avatar" />
@@ -32,7 +32,7 @@
           :value="userInfo && userInfo.nickname"
         >
           <template #right-icon>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <van-cell
@@ -43,7 +43,7 @@
           :value="userInfo && userInfo.gender | formatGender"
         >
           <template #right-icon>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <van-cell
@@ -54,7 +54,7 @@
           :value="(userInfo && userInfo.area) || '未知'"
         >
           <template #right-icon>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
         <!-- 简介 -->
@@ -66,7 +66,7 @@
           :value="userInfo && userInfo.intro"
         >
           <template #right-icon>
-            <i class="iconfont iconicon-more"></i>
+            <i class="iconfont more"></i>
           </template>
         </van-cell>
       </van-cell-group>

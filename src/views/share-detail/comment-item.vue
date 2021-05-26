@@ -17,7 +17,7 @@
         }}</span>
         <i
           :class="{ active: starComments.includes(item.id) }"
-          class="iconfont iconbtn-dianzan-small-nor"
+          class="iconfont dian-zan-small-nor"
         ></i>
       </div>
     </div>

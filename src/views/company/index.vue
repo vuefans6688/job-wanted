@@ -30,11 +30,11 @@
           <span class="arrow-box">
             <i
               :class="{ actived: distance === 'asc' }"
-              class="iconfont rotate iconicon-xuanze-sel"
+              class="iconfont rotate xuan-ze-sel"
             ></i>
             <i
               :class="{ actived: distance === 'desc' }"
-              class="iconfont iconicon-xuanze-sel"
+              class="iconfont xuan-ze-sel"
             ></i>
           </span>
         </span>
@@ -43,11 +43,11 @@
           <span class="arrow-box">
             <i
               :class="{ actived: score === 'asc' }"
-              class="iconfont rotate iconicon-xuanze-sel"
+              class="iconfont rotate xuan-ze-sel"
             ></i>
             <i
               :class="{ actived: score === 'desc' }"
-              class="iconfont iconicon-xuanze-sel"
+              class="iconfont xuan-ze-sel"
             ></i>
           </span>
         </span>

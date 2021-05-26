@@ -10,7 +10,7 @@
           </template>
           <template #right>
             <i @click="collect" class="iconfont iconbtn_shoucang-nor"></i>
-            <i @click="showShare = true" class="iconfont iconbtn-share"></i>
+            <i @click="showShare = true" class="iconfont share"></i>
           </template>
         </van-nav-bar>
       </van-sticky>
@@ -21,13 +21,9 @@
       </h2>
       <!-- 职位 -->
       <div class="job-tags">
-        <span> <i class="iconfont iconicon-city"></i>{{ detail.city }} </span>
-        <span>
-          <i class="iconfont iconicon-nian"></i>{{ detail.experience }}
-        </span>
-        <span>
-          <i class="iconfont iconicon-xueli"></i>{{ detail.education }}
-        </span>
+        <span> <i class="iconfont city"></i>{{ detail.city }} </span>
+        <span> <i class="iconfont nian"></i>{{ detail.experience }} </span>
+        <span> <i class="iconfont xue-li"></i>{{ detail.education }} </span>
       </div>
       <!-- 工作时间 -->
       <div class="time-tags">
@@ -54,7 +50,7 @@
             <span>{{ detail.company.scale }}</span>
           </div>
         </div>
-        <i class="iconfont iconicon-more"></i>
+        <i class="iconfont more"></i>
       </div>
     </div>
     <!-- 底部盒子 -->
@@ -124,7 +120,7 @@ export default {
       display: flex;
       align-items: center;
     }
-    .iconbtn-shoucang-nor {
+    .shou-cang-nor {
       margin-right: 10px;
     }
     .iconfont {

@@ -11,7 +11,7 @@
         </template>
       </van-nav-bar>
       <div class="search-box" @click="$router.push('/search')">
-        <i class="iconfont iconicon-search"></i>请输入关键字
+        <i class="iconfont search"></i>请输入关键字
       </div>
     </div>
     <!-- 列表 -->
