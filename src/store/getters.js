@@ -1,5 +1,4 @@
 export default {
-
   // 获取点赞的文章
   starArticles (state) {
     if (state.userInfo) {

@@ -1,5 +1,4 @@
 export default {
-
   /**
    * 修改用户信息
    * @param {*} state
