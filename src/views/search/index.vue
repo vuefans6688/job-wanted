@@ -132,7 +132,7 @@ export default {
       this.history = JSON.parse(getLocal(this.tag))
       // 类型判断
       if (!(this.history instanceof Array)) {
-        // 不是数组 直接设置为数组
+        // 不是数组，直接设置为数组
         this.history = []
       }
     } catch (error) {
@@ -143,23 +143,23 @@ export default {
     async clickTopSeach (item) {
       this.value = item
       let res
-      let topRes
+      let topResult
       if (this.tag === 'technic') {
         res = await articlesTechnic({
           limit: this.limit,
           start: this.start,
           q: this.value
         })
-        topRes = await articlesTechnicTopSearch()
-        this.topSearch = topRes.data
+        topResult = await articlesTechnicTopSearch()
+        this.topSearch = topResult.data
       } else {
         res = await articlesShare({
           limit: this.limit,
           start: this.start,
           q: this.value
         })
-        topRes = await articlesShareTopSearch()
-        this.topSearch = topRes.data
+        topResult = await articlesShareTopSearch()
+        this.topSearch = topResult.data
       }
       // 显示查询结果
       this.showOption = false
@@ -167,7 +167,7 @@ export default {
       // 处理列表数据
       this.list.forEach(v => {
         // 设置高亮效果
-        v.title = v.title.replace(this.value, `<span class="highlight">${this.value}</span>`)
+        v.title = v.title.replace(this.value, `<span class="high-light">${this.value}</span>`)
         // 封面
         const baseURL = 'https://autumnfish.cn/heimamm_server/'
         if (v.cover) {
@@ -327,7 +327,7 @@ export default {
     }
   }
   // 高亮
-  span.highlight {
+  span.high-light {
     color: #e40137;
   }
 }

@@ -25,8 +25,12 @@
     <div class="content-box">
       <div class="content">{{ item.content }}</div>
       <div class="reply-box" v-if="item.children_comments.length > 0">
-        <div v-for="it in item.children_comments" :key="it.id" class="reply">
-          <span class="name">{{ it.author }}: </span>{{ it.content }}
+        <div
+          v-for="data in item.children_comments"
+          :key="data.id"
+          class="reply"
+        >
+          <span class="name">{{ data.author }}: </span>{{ data.content }}
         </div>
       </div>
     </div>
