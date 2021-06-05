@@ -247,12 +247,7 @@ export default {
             <p id="money"></p>\n
           </div>`
       })
-      chart
-        .interval()
-        .position('const*percent')
-        .color('assetType', val => {
-          return colorObject[val]
-        })
+      chart.interval().position('const*percent').color('assetType', value => colorObject[value])
         .adjust('stack')
         .style({
           lineWidth: 1,
@@ -267,7 +262,7 @@ export default {
       // 数据
       /*
        *
-       * [{ num:'4500',info:'应届生',value:1000 },]
+       * [{ num: '4500', info: '应届生', value: 1000 }]
        */
       const data = this.experienceSalary
       // 位置
@@ -280,7 +275,7 @@ export default {
       chart.source(data)
       chart.tooltip({
         custom: true,
-        onChange: function onChange (ev) {
+        onChange: ev => {
           const tooltipEl = $('.experience-box .tooltip')
           const currentData = ev.items[0]
           const text = currentData.value
@@ -314,22 +309,12 @@ export default {
         }
       })
       // 设置线段
-      chart
-        .line()
-        .position('info*value')
-        .color('#00b8d4')
+      chart.line().position('info*value').color('#00b8d4')
       // 设置转折点
-      chart
-        .point()
-        .position('info*value')
-        .adjust('stack')
-        .style('medalType', { fill: '#fff', lineWidth: 1 })
+      chart.point().position('info*value').adjust('stack').style('medalType', { fill: '#fff', lineWidth: 1 })
         .color('#00b8d4')
       // 设置面积区域
-      chart
-        .area()
-        .position('info*value')
-        .color('#00b8d4')
+      chart.area().position('info*value').color('#00b8d4')
       chart.render()
     },
     // 平均工资变化趋势
@@ -351,7 +336,7 @@ export default {
       })
       chart.tooltip({
         custom: true,
-        onChange: function onChange (ev) {
+        onChange: ev => {
           const tooltipEl = $('.average-box .tooltip')
           const currentData = ev.items[0]
           tooltipEl.html(
@@ -361,17 +346,8 @@ export default {
           )
           tooltipEl.css({
             opacity: 1,
-            left:
-              canvasOffsetLeft +
-              currentData.x -
-              tooltipEl.outerWidth() / 2 +
-              'px',
-            top:
-              canvasOffsetTop +
-              currentData.y -
-              tooltipEl.outerHeight() -
-              15 +
-              'px'
+            left: canvasOffsetLeft + currentData.x - tooltipEl.outerWidth() / 2 + 'px',
+            top: canvasOffsetTop + currentData.y - tooltipEl.outerHeight() - 15 + 'px'
           })
         }
       })
@@ -383,22 +359,12 @@ export default {
         }
       })
       // 设置线段
-      chart
-        .line()
-        .position('date*value')
-        .color('#00b8d4')
+      chart.line().position('date*value').color('#00b8d4')
       // 设置转折点
-      chart
-        .point()
-        .position('date*value')
-        .adjust('stack')
-        .style('medalType', { fill: '#fff', lineWidth: 1 })
+      chart.point().position('date*value').adjust('stack').style('medalType', { fill: '#fff', lineWidth: 1 })
         .color('#00b8d4')
       // 设置面积区域
-      chart
-        .area()
-        .position('date*value')
-        .color('#00b8d4')
+      chart.area().position('date*value').color('#00b8d4')
       chart.render()
     },
     // 就业形势
@@ -419,23 +385,12 @@ export default {
         }
       })
       // 设置线段
-      chart
-        .line()
-        .position('date*value')
-        .color('#00b8d4')
-        .shape('smooth')
+      chart.line().position('date*value').color('#00b8d4').shape('smooth')
       // 设置转折点
-      chart
-        .point()
-        .position('date*value')
-        .adjust('stack')
-        .style('medalType', { fill: '#fff', lineWidth: 1 })
+      chart.point().position('date*value').adjust('stack').style('medalType', { fill: '#fff', lineWidth: 1 })
         .color('#00b8d4')
       // 设置面积区域
-      chart
-        .area()
-        .position('date*value')
-        .color('#00b8d4')
+      chart.area().position('date*value').color('#00b8d4')
       chart.render()
     },
     // 切换城市弹出层
