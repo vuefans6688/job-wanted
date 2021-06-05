@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <!-- 回退按钮 -->
-    <van-nav-bar title="你好，欢迎登录" @click-left="onBack">
+    <van-nav-bar title="登录 / 注册" @click-left="onBack">
       <template #left>
         <i class="iconfont button-nav-back"></i>
       </template>
@@ -96,11 +96,11 @@ export default {
           this.delay = 60
           this.buttonText = `${this.delay}S后重试`
           // 开启定时器
-          this.timer = setInterval(() => {
+          this.intervalId = setInterval(() => {
             this.delay--
             this.buttonText = `${this.delay}S后重试`
             if (this.delay <= 0) {
-              clearInterval(this.timer)
+              clearInterval(this.intervalId)
               this.buttonText = '获取验证码'
             }
           }, 1000)
