@@ -214,8 +214,8 @@ export default {
       })
       chart.source(data, {
         percent: {
-          formatter: function formatter (val) {
-            return val + '%'
+          formatter (value) {
+            return value + '%'
           }
         }
       })
