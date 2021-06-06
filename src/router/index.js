@@ -123,9 +123,9 @@ VueRouter.prototype.push = function push (location) {
 // 跳转到登录页逻辑
 VueRouter.prototype.toLogin = function (fromPath) {
   if (fromPath) {
-    return this.push(`/login?_redirect=${fromPath}`)
+    return this.push(`/login?redirect=${fromPath}`)
   } else {
-    this.push(`/login?_redirect=${this.currentRoute.fullPath}`)
+    this.push(`/login?redirect=${this.currentRoute.fullPath}`)
   }
 }
 // 路由前置守卫

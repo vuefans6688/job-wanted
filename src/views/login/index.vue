@@ -129,9 +129,9 @@ export default {
         // 保存用户信息
         this.SET_USER_INFO(res.data.user)
         // 获取返回的地址
-        const { _redirect } = this.$route.query
-        if (_redirect) {
-          return this.$router.push(_redirect)
+        const { redirect } = this.$route.query
+        if (redirect) {
+          return this.$router.push(redirect)
         }
         // 跳转到我的页面
         this.$router.push('/my')
@@ -143,13 +143,13 @@ export default {
     onBack () {
       const backPaths = ['/my', '/user-info', '/question']
       // 获取返回的地址
-      const { _redirect } = this.$route.query
+      const { redirect } = this.$route.query
       // 如果有就返回
-      if (_redirect) {
+      if (redirect) {
         // 是否存在返回的路径
-        const isExist = backPaths.some(path => _redirect.indexOf(path) === 0)
+        const isExist = backPaths.some(path => redirect.indexOf(path) === 0)
         if (!isExist) {
-          return this.$router.push(_redirect)
+          return this.$router.push(redirect)
         }
       }
       // 如果没有就回到发现页
