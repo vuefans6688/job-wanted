@@ -193,19 +193,19 @@ export default {
       const colorObject = {}
       // 设置图例项的内容
       const legendItems = []
-      data.forEach((obj, i) => {
+      data.forEach((content, i) => {
         const item = {
-          name: obj.assetType,
+          name: content.assetType,
           // 显示的内容
-          value: ' ' + obj.percent + '%',
+          value: ' ' + content.percent + '%',
           marker: {
             symbol: 'square',
             fill: colorArray[i],
             radius: 4
           }
         }
-        // 生成颜色和 assetType的对应关系
-        colorObject[obj.assetType] = colorArray[i]
+        // 生成颜色和assetType的对应关系
+        colorObject[content.assetType] = colorArray[i]
         legendItems.push(item)
       })
       const chart = new F2.Chart({
